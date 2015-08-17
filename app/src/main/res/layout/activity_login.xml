@@ -7,8 +7,8 @@
     <!-- TeamLogo -->
     <ImageView
         android:id="@+id/login_teamLogo"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="46dp"
@@ -62,6 +62,21 @@
         android:capitalize="none"
         android:onClick="onLoginButtonClick"
         android:text="@string/button_login"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:typeface="sans"
+        android:visibility="visible" />
+
+    <!--facebook button-->
+    <Button
+        android:id="@+id/facebook_login_button"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:background="@color/blue_login"
+        android:capitalize="none"
+        android:text="Login with Facebook"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:typeface="sans"
