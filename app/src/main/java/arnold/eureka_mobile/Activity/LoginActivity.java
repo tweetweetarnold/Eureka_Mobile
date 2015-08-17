@@ -1,36 +1,69 @@
-package arnold.eureka_mobile;
+package arnold.eureka_mobile.Activity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import arnold.eureka_mobile.Entity.User;
+import arnold.eureka_mobile.R;
+import arnold.eureka_mobile.TestCreator;
+
 public class LoginActivity extends Activity {
+
+    private static final String TAG = "arnold/LoginAct";
+    private Gson gson;
+    private SharedPreferences sharedPref;
+    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+//        initialize
+        gson = new GsonBuilder().create();
+        sharedPref = this.getSharedPreferences(getString(R.string.app_key), MODE_PRIVATE);
+        editor = sharedPref.edit();
     }
 
-    public void onLoginButtonClick(){
+    @Override
+    protected void onResume() {
+        super.onResume();
+        TextView inputUsername = (TextView) findViewById(R.id.login_username);
+        TextView inputPassword = (TextView) findViewById(R.id.login_password);
+        inputUsername.setText("abc");
+        inputPassword.setText("123");
+    }
+
+    public void onLoginButtonClick(View view){
         TextView inputUsername = (TextView) findViewById(R.id.login_username);
         TextView inputPassword = (TextView) findViewById(R.id.login_password);
         String strUsername = inputUsername.getText().toString();
         String strPassword = inputPassword.getText().toString();
 
+//        for testing
+        User testUser = TestCreator.getTestUser();
+
 //        check if user is valid
-        boolean authenticate = (strUsername.equals("abc") && strPassword.equals("123"));
+        boolean authenticate = (strUsername.equals(testUser.getUsername()) && strPassword.equals(testUser.getPassword()));
 
         if(authenticate){
-            startActivity(new Intent(getApplicationContext(), HomepageActivity.class));
+            Log.i(TAG, "User credentials valid.");
+            editor.putString("user", gson.toJson(testUser));
+            editor.apply();
+            startActivity(new Intent(this, HomepageActivity.class));
         }else{
-            runAlertDialog("Incorrect credentials",
+            Log.e(TAG, "Invalid credentials");
+            runAlertDialog("Invalid credentials",
                     "Oops! Something went wrong!\nMake sure your username and password is correct.");
         }
     }

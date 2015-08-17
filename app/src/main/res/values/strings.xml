@@ -1,10 +1,11 @@
 <resources>
     <string name="app_name">Eureka_Mobile</string>
+    <string name="app_key">arnold.key</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="hint_username">Username</string>
     <string name="hint_password">Password</string>
     <string name="button_login">Login</string>
-    <string name="title_activity_homepage">HomepageActivity</string>
+    <string name="title_activity_homepage">Homepage</string>
 </resources>
