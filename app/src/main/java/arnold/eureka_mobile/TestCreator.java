@@ -1,6 +1,6 @@
 package arnold.eureka_mobile;
 
-import arnold.eureka_mobile.Entity.User;
+import arnold.eureka_mobile.Model.User;
 
 /**
  * Created by Arnold on 8/18/2015.

@@ -7,14 +7,33 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
+import com.facebook.AccessToken;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.HttpMethod;
+import com.facebook.Profile;
+import com.facebook.ProfileTracker;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import arnold.eureka_mobile.Entity.User;
+import org.json.JSONObject;
+
+import java.util.Arrays;
+
+import arnold.eureka_mobile.Controller.AccessController;
+import arnold.eureka_mobile.Model.User;
 import arnold.eureka_mobile.R;
 import arnold.eureka_mobile.TestCreator;
 
@@ -24,6 +43,8 @@ public class LoginActivity extends Activity {
     private Gson gson;
     private SharedPreferences sharedPref;
     private SharedPreferences.Editor editor;
+    private CallbackManager callbackManager;
+    private AccessToken token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +56,66 @@ public class LoginActivity extends Activity {
         gson = new GsonBuilder().create();
         sharedPref = this.getSharedPreferences(getString(R.string.app_key), MODE_PRIVATE);
         editor = sharedPref.edit();
+
+        loadFacebookSDK();
+
+    }
+
+    public void loadFacebookSDK(){
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        LoginManager loginManager = LoginManager.getInstance();
+        callbackManager = CallbackManager.Factory.create();
+        LoginButton loginButton = (LoginButton) findViewById(R.id.facebook_login_button);
+//        loginButton.setReadPermissions("user_friends"); //not sure what this is for
+
+        loginManager.logInWithReadPermissions(this, Arrays.asList("public_profile", "user_friends"));
+
+        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                Log.i(TAG, "Facebook login success!");
+                AccessToken token2 = loginResult.getAccessToken();
+                System.out.println("MyToken: " + token2);
+                setToken(token2);
+                editor.putString("token", token2.toString());
+                editor.apply();
+                startActivity(new Intent(getApplicationContext(), HomepageActivity.class));
+//                getUserProfile();
+            }
+
+            @Override
+            public void onCancel() {
+                Log.i(TAG, "Facebook login cancelled!");
+            }
+
+            @Override
+            public void onError(FacebookException e) {
+                Log.i(TAG, "Facebook login error!");
+            }
+        });
+
+    }
+
+    public void setToken(AccessToken token){
+        this.token = token;
+    }
+
+    public void getUserProfile(){
+        new GraphRequest(token, "/me", null, HttpMethod.GET, new GraphRequest.Callback() {
+            @Override
+            public void onCompleted(GraphResponse graphResponse) {
+                JSONObject object = graphResponse.getJSONObject();
+                TextView text = (TextView) findViewById(R.id.login_appName);
+                text.setText(object.toString());
+            }
+        }).executeAsync();
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override
@@ -44,6 +125,8 @@ public class LoginActivity extends Activity {
         TextView inputPassword = (TextView) findViewById(R.id.login_password);
         inputUsername.setText("abc");
         inputPassword.setText("123");
+        TextView view = (TextView) findViewById(R.id.login_appName);
+        view.setText("nothing");
     }
 
     public void onLoginButtonClick(View view){
@@ -52,13 +135,11 @@ public class LoginActivity extends Activity {
         String strUsername = inputUsername.getText().toString();
         String strPassword = inputPassword.getText().toString();
 
-//        for testing
+        boolean result = AccessController.getInstance(getApplicationContext()).processLogin(strUsername, strPassword);
+
         User testUser = TestCreator.getTestUser();
 
-//        check if user is valid
-        boolean authenticate = (strUsername.equals(testUser.getUsername()) && strPassword.equals(testUser.getPassword()));
-
-        if(authenticate){
+        if (result) {
             Log.i(TAG, "User credentials valid.");
             editor.putString("user", gson.toJson(testUser));
             editor.apply();
@@ -68,6 +149,7 @@ public class LoginActivity extends Activity {
             runAlertDialog("Invalid credentials",
                     "Oops! Something went wrong!\nMake sure your username and password is correct.");
         }
+
     }
 
     public void runAlertDialog(String title, String message){
@@ -83,25 +165,4 @@ public class LoginActivity extends Activity {
     }
 
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_login, menu);
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
 }

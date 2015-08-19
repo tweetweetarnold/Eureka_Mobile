@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -65,6 +66,10 @@ public class HomepageActivity extends AppCompatActivity {
         loadDrawer(); //load Drawer
 
         viewPager.setCurrentItem(1);
+
+        Toast.makeText(HomepageActivity.this, "Welcome user!", Toast.LENGTH_SHORT).show();
+
+
     }
 
     public void loadActionBarTabs(){

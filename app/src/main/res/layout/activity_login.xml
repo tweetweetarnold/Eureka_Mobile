@@ -68,18 +68,13 @@
         android:visibility="visible" />
 
     <!--facebook button-->
-    <Button
+    <com.facebook.login.widget.LoginButton
         android:id="@+id/facebook_login_button"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
+        android:textSize="25sp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"
-        android:background="@color/blue_login"
-        android:capitalize="none"
-        android:text="Login with Facebook"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:typeface="sans"
-        android:visibility="visible" />
+        android:layout_marginBottom="30dp" />
 
 </LinearLayout>
