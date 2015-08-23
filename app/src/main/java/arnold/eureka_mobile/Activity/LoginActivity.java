@@ -57,44 +57,44 @@ public class LoginActivity extends Activity {
         sharedPref = this.getSharedPreferences(getString(R.string.app_key), MODE_PRIVATE);
         editor = sharedPref.edit();
 
-        loadFacebookSDK();
+//        loadFacebookSDK();
 
     }
 
-    public void loadFacebookSDK(){
-        FacebookSdk.sdkInitialize(getApplicationContext());
-        LoginManager loginManager = LoginManager.getInstance();
-        callbackManager = CallbackManager.Factory.create();
-        LoginButton loginButton = (LoginButton) findViewById(R.id.facebook_login_button);
-//        loginButton.setReadPermissions("user_friends"); //not sure what this is for
-
-        loginManager.logInWithReadPermissions(this, Arrays.asList("public_profile", "user_friends"));
-
-        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-                Log.i(TAG, "Facebook login success!");
-                AccessToken token2 = loginResult.getAccessToken();
-                System.out.println("MyToken: " + token2);
-                setToken(token2);
-                editor.putString("token", token2.toString());
-                editor.apply();
-                startActivity(new Intent(getApplicationContext(), HomepageActivity.class));
-//                getUserProfile();
-            }
-
-            @Override
-            public void onCancel() {
-                Log.i(TAG, "Facebook login cancelled!");
-            }
-
-            @Override
-            public void onError(FacebookException e) {
-                Log.i(TAG, "Facebook login error!");
-            }
-        });
-
-    }
+//    public void loadFacebookSDK(){
+//        FacebookSdk.sdkInitialize(getApplicationContext());
+//        LoginManager loginManager = LoginManager.getInstance();
+//        callbackManager = CallbackManager.Factory.create();
+//        LoginButton loginButton = (LoginButton) findViewById(R.id.facebook_login_button);
+////        loginButton.setReadPermissions("user_friends"); //not sure what this is for
+//
+//        loginManager.logInWithReadPermissions(this, Arrays.asList("public_profile", "user_friends"));
+//
+//        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+//            @Override
+//            public void onSuccess(LoginResult loginResult) {
+//                Log.i(TAG, "Facebook login success!");
+//                AccessToken token2 = loginResult.getAccessToken();
+//                System.out.println("MyToken: " + token2);
+//                setToken(token2);
+//                editor.putString("token", token2.toString());
+//                editor.apply();
+//                startActivity(new Intent(getApplicationContext(), HomepageActivity.class));
+////                getUserProfile();
+//            }
+//
+//            @Override
+//            public void onCancel() {
+//                Log.i(TAG, "Facebook login cancelled!");
+//            }
+//
+//            @Override
+//            public void onError(FacebookException e) {
+//                Log.i(TAG, "Facebook login error!");
+//            }
+//        });
+//
+//    }
 
     public void setToken(AccessToken token){
         this.token = token;
@@ -125,8 +125,6 @@ public class LoginActivity extends Activity {
         TextView inputPassword = (TextView) findViewById(R.id.login_password);
         inputUsername.setText("abc");
         inputPassword.setText("123");
-        TextView view = (TextView) findViewById(R.id.login_appName);
-        view.setText("nothing");
     }
 
     public void onLoginButtonClick(View view){

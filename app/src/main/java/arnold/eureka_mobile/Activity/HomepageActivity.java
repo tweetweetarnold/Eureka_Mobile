@@ -38,7 +38,7 @@ public class HomepageActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
 
     String[] drawerList = new String[]{"My Profile", "Canteen", "Maps", "Logout"}; //items in drawer
-    String[] tabList = new String[]{"Tab1", "Tab2", "Tab3"}; //items in tabs
+    String[] tabList = new String[]{"Tab1", "Food", "Tab3"}; //items in tabs
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +72,7 @@ public class HomepageActivity extends AppCompatActivity {
 
     }
 
+//    load resources for action bar tabs view
     public void loadActionBarTabs(){
         actionBar = getSupportActionBar();
         actionBar.setNavigationMode(android.support.v7.app.ActionBar.NAVIGATION_MODE_TABS);
@@ -95,6 +96,7 @@ public class HomepageActivity extends AppCompatActivity {
         }
     }
 
+//    load resources to enable swipe navigation
     public void loadSwipeView(){
         viewPager = (ViewPager) findViewById(R.id.homepage_pager);
         viewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
@@ -107,8 +109,7 @@ public class HomepageActivity extends AppCompatActivity {
         viewPager.setAdapter(homepageTabsPagerAdapter);
     }
 
-
-
+//    load resources to enable side drawer
     public void loadDrawer(){
         final ArrayAdapter<String> drawerAdapter = new ArrayAdapter<>(this, R.layout.drawer_item, drawerList);
         drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
@@ -148,6 +149,7 @@ public class HomepageActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+//        for setting menu icon in action bar in to left hand corner
         switch(item.getItemId()){
             case android.R.id.home:
                 if(drawerLayout.isDrawerOpen(Gravity.LEFT)){
@@ -160,6 +162,7 @@ public class HomepageActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+//    to process logout
     public void processLogout(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Logout confirmation").setMessage("Leaving so soon? We will miss you");

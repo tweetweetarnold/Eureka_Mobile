@@ -14,18 +14,17 @@ public class HomepageTabsPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int i){
         Fragment fragment = null;
-//            switch(i){
-//                case 0:
-//                    fragment = new CompletedFragment();
-//                    break;
-//                case 1:
-//                    fragment = new OngoingFragment();
-//                    break;
-//                case 2:
-//                    fragment = new BallotFragment();
-//                    break;
-//            }
-        fragment = new HomepageFragment();
+            switch(i){
+                case 0:
+                    fragment = new HomepageFragment();
+                    break;
+                case 1:
+                    fragment = new HomepageFragment();
+                    break;
+                case 2:
+                    fragment = new HomepageFragment();
+                    break;
+            }
         return fragment;
     }
 
