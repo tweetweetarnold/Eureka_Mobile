@@ -1,19 +1,12 @@
 package arnold.eureka_mobile.Controller;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.util.Log;
-import android.view.View;
-import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import arnold.eureka_mobile.Activity.HomepageActivity;
-import arnold.eureka_mobile.Model.User;
+import arnold.eureka_mobile.Entity.User;
 import arnold.eureka_mobile.R;
 import arnold.eureka_mobile.TestCreator;
 

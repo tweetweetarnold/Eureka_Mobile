@@ -12,7 +12,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import arnold.eureka_mobile.Connection.NetworkSingleton;
-import arnold.eureka_mobile.Model.User;
+import arnold.eureka_mobile.Entity.User;
 import arnold.eureka_mobile.R;
 
 public class ProfileActivity extends AppCompatActivity {

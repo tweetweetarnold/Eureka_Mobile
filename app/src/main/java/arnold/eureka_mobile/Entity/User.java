@@ -1,4 +1,4 @@
-package arnold.eureka_mobile.Model;
+package arnold.eureka_mobile.Entity;
 
 /**
  * Created by Arnold on 8/17/2015.

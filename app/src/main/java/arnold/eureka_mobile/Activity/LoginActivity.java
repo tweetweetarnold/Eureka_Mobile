@@ -7,33 +7,22 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.HttpMethod;
-import com.facebook.Profile;
-import com.facebook.ProfileTracker;
-import com.facebook.login.LoginManager;
-import com.facebook.login.LoginResult;
-import com.facebook.login.widget.LoginButton;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import org.json.JSONObject;
 
-import java.util.Arrays;
-
 import arnold.eureka_mobile.Controller.AccessController;
-import arnold.eureka_mobile.Model.User;
+import arnold.eureka_mobile.Entity.User;
 import arnold.eureka_mobile.R;
 import arnold.eureka_mobile.TestCreator;
 
