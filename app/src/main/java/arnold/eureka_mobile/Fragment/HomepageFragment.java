@@ -51,9 +51,7 @@ public class HomepageFragment extends android.support.v4.app.Fragment {
         return view;
     }
 
-    public void doButton(){
-        Toast.makeText(getActivity(), "Notification testing", Toast.LENGTH_SHORT).show();
-    }
+
 
 
 }

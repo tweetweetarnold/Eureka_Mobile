@@ -1,7 +1,6 @@
 package arnold.eureka_mobile.Activity;
 
 import android.app.AlertDialog;
-import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -25,10 +24,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import arnold.eureka_mobile.Adapter.HomepageTabsPagerAdapter;
+import arnold.eureka_mobile.Connection.NetworkSingleton;
 import arnold.eureka_mobile.R;
 
 public class HomepageActivity extends AppCompatActivity {
@@ -76,6 +79,26 @@ public class HomepageActivity extends AppCompatActivity {
 
 
     }
+
+//    TODO: *** CHRIS *** Request sample code start
+    public void doButton3(View view){
+        final TextView tv = (TextView) findViewById(R.id.sample_text);
+        String url = "https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA";
+
+        StringRequest request = new StringRequest(url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String s) {
+                tv.setText(s);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                Log.e(TAG, "Error message");
+            }
+        });
+        NetworkSingleton.getInstance(getApplicationContext()).addToRequestQueue(request);
+    }
+    //    TODO: *** CHRIS *** Request sample code end
 
     public void doButton2(View view){
         Toast.makeText(this, "Notification testing", Toast.LENGTH_SHORT).show();
