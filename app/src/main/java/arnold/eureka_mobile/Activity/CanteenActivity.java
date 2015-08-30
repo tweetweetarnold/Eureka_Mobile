@@ -13,7 +13,7 @@ import arnold.eureka_mobile.R;
 
 public class CanteenActivity extends AppCompatActivity {
 
-    private final static String TAG = "arnold/CanteenAct";
+    private final static String TAG = "eureka/CanteenAct";
     private Gson gson;
     private SharedPreferences sharedPref;
     private SharedPreferences.Editor editor;

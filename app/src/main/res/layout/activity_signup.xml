@@ -4,15 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!-- TeamLogo -->
-    <!--<ImageView-->
-    <!--android:id="@+id/login_teamLogo"-->
-    <!--android:layout_width="150dp"-->
-    <!--android:layout_height="150dp"-->
-    <!--android:layout_gravity="center_horizontal"-->
-    <!--android:layout_marginBottom="10dp"-->
-    <!--android:layout_marginTop="46dp"-->
-    <!--android:background="@drawable/img_team_logo"/>-->
 
     <Space
         android:layout_width="match_parent"
@@ -57,7 +48,7 @@
 
     <!-- Username -->
     <EditText
-        android:id="@+id/login_username"
+        android:id="@+id/signup_username"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -67,9 +58,9 @@
         android:inputType="text"
         android:maxWidth="300dp" />
 
-    <!-- Password -->
+    <!-- password -->
     <EditText
-        android:id="@+id/login_password"
+        android:id="@+id/signup_password"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -79,17 +70,48 @@
         android:inputType="textPassword"
         android:maxWidth="300dp" />
 
-    <!--Login button-->
+    <!-- email -->
+    <EditText
+        android:id="@+id/signup_email"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:hint="@string/hint_email"
+        android:inputType="text"
+        android:maxWidth="300dp" />
+
+    <!-- phone number  -->
+    <EditText
+        android:id="@+id/signup_contactNo"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:hint="@string/hint_contactNo"
+        android:inputType="text"
+        android:maxWidth="300dp" />
+
+    <!--Signup button-->
+    <CheckBox
+        android:id="@+id/signup_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Terms and Conditions" />
+
     <Button
-        android:id="@+id/login_button"
+        android:id="@+id/signup_button"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="15dp"
         android:background="@color/blue_login"
         android:capitalize="none"
-        android:onClick="onLoginButtonClick"
-        android:text="@string/button_login"
+        android:onClick="onSignupButtonClick"
+        android:text="@string/button_signup"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:typeface="sans"

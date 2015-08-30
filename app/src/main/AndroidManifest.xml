@@ -90,6 +90,14 @@
             android:name=".Activity.OtherUsers.HawkerMainActivity"
             android:label="@string/title_activity_hawker_main" >
         </activity>
+        <activity
+            android:name=".Activity.SignUpActivity"
+            android:label="@string/title_activity_signup"
+            android:parentActivityName=".Activity.LoginActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="arnold.eureka_mobile.Activity.LoginActivity" />
+        </activity>
     </application>
 
 </manifest>

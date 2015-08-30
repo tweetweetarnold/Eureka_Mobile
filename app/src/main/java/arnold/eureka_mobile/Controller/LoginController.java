@@ -13,23 +13,23 @@ import arnold.eureka_mobile.TestCreator;
 /**
  * Created by Arnold on 8/19/2015.
  */
-public class AccessController {
+public class LoginController {
 
-    private final static String TAG = "AccessControl";
+    private final static String TAG = "LoginControl";
     private static SharedPreferences sharedPref;
     private static SharedPreferences.Editor editor;
     private static Gson gson;
     Context context;
 
-    public AccessController(Context context) {
+    public LoginController(Context context) {
         this.context = context;
         gson = new GsonBuilder().create();
         sharedPref = context.getSharedPreferences(context.getString(R.string.app_key), Context.MODE_PRIVATE);
         editor = sharedPref.edit();
     }
 
-    public static AccessController getInstance(Context context){
-        return new AccessController(context);
+    public static LoginController getInstance(Context context){
+        return new LoginController(context);
     }
 
     public boolean processLogin (String username, String password) {

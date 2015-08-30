@@ -21,14 +21,14 @@ import com.google.gson.GsonBuilder;
 
 import org.json.JSONObject;
 
-import arnold.eureka_mobile.Controller.AccessController;
+import arnold.eureka_mobile.Controller.LoginController;
 import arnold.eureka_mobile.Entity.User;
 import arnold.eureka_mobile.R;
 import arnold.eureka_mobile.TestCreator;
 
 public class LoginActivity extends Activity {
 
-    private static final String TAG = "arnold/LoginAct";
+    private static final String TAG = "eureka/LoginAct";
     private Gson gson;
     private SharedPreferences sharedPref;
     private SharedPreferences.Editor editor;
@@ -122,7 +122,7 @@ public class LoginActivity extends Activity {
         String strUsername = inputUsername.getText().toString();
         String strPassword = inputPassword.getText().toString();
 
-        boolean result = AccessController.getInstance(getApplicationContext()).processLogin(strUsername, strPassword);
+        boolean result = LoginController.getInstance(getApplicationContext()).processLogin(strUsername, strPassword);
 
         User testUser = TestCreator.getTestUser();
 

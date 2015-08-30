@@ -36,7 +36,7 @@ import arnold.eureka_mobile.R;
 
 public class HomepageActivity extends AppCompatActivity {
 
-    private final static String TAG = "arnold/HomepageAct";
+    private final static String TAG = "eureka/HomepageAct";
     private Gson gson;
     private SharedPreferences sharedPref;
     private SharedPreferences.Editor editor;

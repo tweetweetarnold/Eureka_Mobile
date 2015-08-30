@@ -19,7 +19,7 @@ import arnold.eureka_mobile.R;
 
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
 
-    private static final String TAG = "arnold/MapAct";
+    private static final String TAG = "eureka/MapAct";
     private MapFragment mMapFragment;
     private static final float ZOOM_COUNTRY = 10;
     private static final float ZOOM_LOCATION = 16;

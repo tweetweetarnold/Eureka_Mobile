@@ -17,7 +17,7 @@ import arnold.eureka_mobile.R;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    private static final String TAG = "arnold/ProfileAct";
+    private static final String TAG = "eureka/ProfileAct";
     private SharedPreferences sharedPref;
     private SharedPreferences.Editor editor;
     private NetworkSingleton network;
