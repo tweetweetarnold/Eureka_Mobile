@@ -42,4 +42,5 @@
         <item>Food</item>
         <item>Tab 3</item>
     </string-array>
+    <string name="title_activity_homepage2">Homepage2Activity</string>
 </resources>
