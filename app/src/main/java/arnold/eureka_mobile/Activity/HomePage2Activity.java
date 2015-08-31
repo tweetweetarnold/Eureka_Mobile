@@ -7,18 +7,18 @@ import android.view.MenuItem;
 
 import arnold.eureka_mobile.R;
 
-public class HomePage2Activity extends ActionBarActivity {
+public class Homepage2Activity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_page2);
+        setContentView(R.layout.activity_homepage2);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_home_page2, menu);
+        getMenuInflater().inflate(R.menu.menu_homepage2, menu);
         return true;
     }
 
