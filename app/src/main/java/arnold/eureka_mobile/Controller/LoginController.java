@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import arnold.eureka_mobile.Entity.User;
+import arnold.eureka_mobile.Entity.Employee;
 import arnold.eureka_mobile.R;
 import arnold.eureka_mobile.TestCreator;
 
@@ -34,10 +34,10 @@ public class LoginController {
 
     public boolean processLogin (String username, String password) {
 //        for testing
-        User testUser = TestCreator.getTestUser();
+        Employee testEmployee = TestCreator.getTestUser();
 
 //        check if user is valid
-        boolean authenticate = (username.equals(testUser.getUsername()) && password.equals(testUser.getPassword()));
+        boolean authenticate = (username.equals(testEmployee.getUsername()) && password.equals(testEmployee.getPassword()));
         return authenticate;
     }
 }

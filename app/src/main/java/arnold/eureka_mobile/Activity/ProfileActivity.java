@@ -12,7 +12,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import arnold.eureka_mobile.Connection.NetworkSingleton;
-import arnold.eureka_mobile.Entity.User;
+import arnold.eureka_mobile.Entity.Employee;
 import arnold.eureka_mobile.R;
 
 public class ProfileActivity extends AppCompatActivity {
@@ -22,7 +22,7 @@ public class ProfileActivity extends AppCompatActivity {
     private SharedPreferences.Editor editor;
     private NetworkSingleton network;
     private Gson gson;
-    private User user;
+    private Employee employee;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +35,7 @@ public class ProfileActivity extends AppCompatActivity {
         editor = sharedPref.edit();
         network = NetworkSingleton.getInstance(getApplicationContext());
 
-        user = gson.fromJson(sharedPref.getString("user", null), User.class);
+        employee = gson.fromJson(sharedPref.getString("employee", null), Employee.class);
 
         setTextViews(); //set text views
         getJson();
@@ -48,7 +48,7 @@ public class ProfileActivity extends AppCompatActivity {
         TextView dateJoined = (TextView) findViewById(R.id.content_dateJoined);
         TextView contactNum = (TextView) findViewById(R.id.content_contactNo);
 
-        name.setText(user.getName());
+        name.setText(employee.getName());
     }
 
     public void getJson(){

@@ -3,11 +3,11 @@ package arnold.eureka_mobile.Entity;
 /**
  * Created by Arnold on 8/17/2015.
  */
-public class User {
+public class Employee {
 
     private String username, password, name;
 
-    public User(String username, String password, String name) {
+    public Employee(String username, String password, String name) {
         this.username = username;
         this.password = password;
         this.name = name;

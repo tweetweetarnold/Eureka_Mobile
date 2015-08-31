@@ -22,7 +22,7 @@ import com.google.gson.GsonBuilder;
 import org.json.JSONObject;
 
 import arnold.eureka_mobile.Controller.LoginController;
-import arnold.eureka_mobile.Entity.User;
+import arnold.eureka_mobile.Entity.Employee;
 import arnold.eureka_mobile.R;
 import arnold.eureka_mobile.TestCreator;
 
@@ -94,7 +94,7 @@ public class LoginActivity extends Activity {
             @Override
             public void onCompleted(GraphResponse graphResponse) {
                 JSONObject object = graphResponse.getJSONObject();
-                TextView text = (TextView) findViewById(R.id.login_appName);
+                TextView text = (TextView) findViewById(R.id.appName);
                 text.setText(object.toString());
             }
         }).executeAsync();
@@ -124,11 +124,10 @@ public class LoginActivity extends Activity {
 
         boolean result = LoginController.getInstance(getApplicationContext()).processLogin(strUsername, strPassword);
 
-        User testUser = TestCreator.getTestUser();
+        Employee testEmployee = TestCreator.getTestUser();
 
         if (result) {
-            Log.i(TAG, "User credentials valid.");
-            editor.putString("user", gson.toJson(testUser));
+            editor.putString("user", gson.toJson(testEmployee));
             editor.apply();
             startActivity(new Intent(this, HomepageActivity.class));
         }else{
@@ -136,7 +135,10 @@ public class LoginActivity extends Activity {
             runAlertDialog("Invalid credentials",
                     "Oops! Something went wrong!\nMake sure your username and password is correct.");
         }
+    }
 
+    public void goToSignUp(View view){
+        startActivity(new Intent(getApplicationContext(), SignUpActivity.class));
     }
 
     public void runAlertDialog(String title, String message){

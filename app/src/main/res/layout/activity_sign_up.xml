@@ -30,7 +30,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Login"/>
+            android:text="Login"
+            android:onClick="goToLogin"/>
     </LinearLayout>
 
     <!--Title-->
@@ -110,12 +111,12 @@
         android:layout_marginTop="15dp"
         android:background="@color/blue_login"
         android:capitalize="none"
-        android:onClick="onSignupButtonClick"
+        android:onClick="onSignUpButtonClick"
         android:text="@string/button_signup"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:typeface="sans"
-        android:visibility="visible" />
+        android:visibility="visible"/>
 
     <!-- Forgot password text -->
     <TextView

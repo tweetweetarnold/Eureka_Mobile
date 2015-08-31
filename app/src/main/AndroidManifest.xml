@@ -92,11 +92,11 @@
         </activity>
         <activity
             android:name=".Activity.SignUpActivity"
-            android:label="@string/title_activity_signup"
-            android:parentActivityName=".Activity.LoginActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="arnold.eureka_mobile.Activity.LoginActivity" />
+            android:label="@string/title_activity_sign_up" >
+        </activity>
+        <activity
+            android:name=".Activity.Homepage2Activity"
+            android:label="@string/title_activity_home_page2" >
         </activity>
     </application>
 

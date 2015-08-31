@@ -14,13 +14,16 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Layout;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,9 +47,13 @@ public class HomepageActivity extends AppCompatActivity {
 
     private ViewPager viewPager;
     private DrawerLayout drawerLayout;
+    private LinearLayout drawer;
 
-    String[] drawerList = new String[]{"My Profile", "Canteen", "Maps", "Logout"}; //items in drawer
-    String[] tabList = new String[]{"Tab1", "Food", "Tab3"}; //items in tabs
+//    String[] tabList = getResources().getStringArray(R.array.tabList); //items in tabs
+//    String[] drawerList = getResources().getStringArray(R.array.drawerList); //items in drawer
+
+    String[] tabList = new String[]{"Tab 1", "Food", "Tab3 "};
+    String[] drawerList = new String[]{"My Profile", "Canteen", "Maps", "Logout"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,25 +87,23 @@ public class HomepageActivity extends AppCompatActivity {
 
     }
 
-//    TODO: *** CHRIS *** Request sample code start
-    public void doButton3(View view){
-        final TextView tv = (TextView) findViewById(R.id.sample_text);
-        String url = "https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA";
-
-        StringRequest request = new StringRequest(url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String s) {
-                tv.setText(s);
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError volleyError) {
-                Log.e(TAG, "Error message");
-            }
-        });
-        NetworkSingleton.getInstance(getApplicationContext()).addToRequestQueue(request);
-    }
-    //    TODO: *** CHRIS *** Request sample code end
+//    public void doButton3(View view){
+//        final TextView tv = (TextView) findViewById(R.id.sample_text);
+//        String url = "https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA";
+//
+//        StringRequest request = new StringRequest(url, new Response.Listener<String>() {
+//            @Override
+//            public void onResponse(String s) {
+//                tv.setText(s);
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError volleyError) {
+//                Log.e(TAG, "Error message");
+//            }
+//        });
+//        NetworkSingleton.getInstance(getApplicationContext()).addToRequestQueue(request);
+//    }
 
     public void doButton2(View view){
         Toast.makeText(this, "Notification testing", Toast.LENGTH_SHORT).show();
@@ -167,9 +172,12 @@ public class HomepageActivity extends AppCompatActivity {
 //    load resources to enable side drawer
     public void loadDrawer(){
         final ArrayAdapter<String> drawerAdapter = new ArrayAdapter<>(this, R.layout.drawer_item, drawerList);
-        drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
 
-        ListView listView = (ListView)findViewById(R.id.homepage_drawer);
+//        drawer = (LinearLayout) findViewById(R.id.drawer);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        SimpleAdapter simpleAdapter = new SimpleAdapter(this, drawerList, drawerLayout, );
+
+        ListView listView = (ListView) findViewById(R.id.drawer_list);
         listView.setAdapter(drawerAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

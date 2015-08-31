@@ -9,4 +9,6 @@
     <color name="purple_jam">#6A287E</color>
     <color name="list_border">#ffa8a8a4</color>
 
+    <color name="drawer_item_bg">#661787</color>
+
 </resources>

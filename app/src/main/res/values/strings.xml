@@ -28,4 +28,18 @@
     <string name="title_activity_driver_main">DriverMainActivity</string>
     <string name="title_activity_hawker_main">HawkerMainActivity</string>
     <string name="title_activity_signup">SignupActivity</string>
+    <string name="title_activity_sign_up">SignUpActivity</string>
+    <string name="title_activity_home_page2">HomePage2Activity</string>
+
+    <string-array name="drawerList">
+        <item>My Profile</item>
+        <item>Canteen</item>
+        <item>Maps</item>
+        <item>Logout</item>
+    </string-array>
+    <string-array name="tabList">
+        <item>Tab 1</item>
+        <item>Food</item>
+        <item>Tab 3</item>
+    </string-array>
 </resources>
