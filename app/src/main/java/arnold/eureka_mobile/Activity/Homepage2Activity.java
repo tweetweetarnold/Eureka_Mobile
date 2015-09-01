@@ -82,7 +82,7 @@ public class Homepage2Activity extends ActionBarActivity {
                             intent = new Intent(context, ProfileActivity.class);
                             break;
                         case "Menu":
-                            intent = new Intent(context, CanteenActivity.class);
+                            intent = new Intent(context, CanteenSelectorActivity.class);
                             break;
                         case "Maps":
                             intent = new Intent(context, MapActivity.class);

@@ -26,6 +26,7 @@
         android:layout_height="wrap_content"
         android:text="Jurong Island"
         android:id="@+id/jurong_button"
+        android:onClick="goToMenu"
         android:layout_gravity="center_horizontal" />
 
     <!-- Boon lay canteen -->
@@ -34,7 +35,8 @@
         android:layout_height="wrap_content"
         android:text="Boon Lay"
         android:id="@+id/boonlay_button"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:onClick="goToMenu"/>
 
 
 </LinearLayout>

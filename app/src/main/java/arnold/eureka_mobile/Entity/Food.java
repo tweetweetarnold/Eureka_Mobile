@@ -11,6 +11,8 @@ public class Food {
 	// private byte[] image;
 	private Date createDate;
 
+	public Food(){}
+
 	public Food(String name, String description, double price, Hawker hawker,
 			Date createDate) {
 		super();

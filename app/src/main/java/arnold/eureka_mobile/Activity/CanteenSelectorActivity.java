@@ -1,9 +1,11 @@
 package arnold.eureka_mobile.Activity;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import arnold.eureka_mobile.R;
 
@@ -35,5 +37,10 @@ public class CanteenSelectorActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void goToMenu(View view){
+        System.out.println("running gotomenu");
+        startActivity(new Intent(this, FoodMenuActivity.class));
     }
 }
