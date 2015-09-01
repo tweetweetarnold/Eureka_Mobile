@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.RequestFuture;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookSdk;
@@ -21,6 +23,9 @@ import com.google.gson.GsonBuilder;
 
 import org.json.JSONObject;
 
+import java.util.concurrent.TimeUnit;
+
+import arnold.eureka_mobile.Connection.NetworkSingleton;
 import arnold.eureka_mobile.Controller.LoginController;
 import arnold.eureka_mobile.Entity.Employee;
 import arnold.eureka_mobile.R;
@@ -33,6 +38,7 @@ public class LoginActivity extends Activity {
     private SharedPreferences sharedPref;
     private SharedPreferences.Editor editor;
     private CallbackManager callbackManager;
+    private NetworkSingleton network;
     private AccessToken token;
 
     @Override
@@ -45,6 +51,7 @@ public class LoginActivity extends Activity {
         gson = new GsonBuilder().create();
         sharedPref = this.getSharedPreferences(getString(R.string.app_key), MODE_PRIVATE);
         editor = sharedPref.edit();
+        network = NetworkSingleton.getInstance(this);
 
 //        loadFacebookSDK();
 
@@ -122,18 +129,22 @@ public class LoginActivity extends Activity {
         String strUsername = inputUsername.getText().toString();
         String strPassword = inputPassword.getText().toString();
 
-        boolean result = LoginController.getInstance(getApplicationContext()).processLogin(strUsername, strPassword);
+        try {
+            LoginController loginController = new LoginController(this);
+            boolean authenticate = loginController.authenticateUser(strUsername, strPassword);
 
-        Employee testEmployee = TestCreator.getTestUser();
-
-        if (result) {
-            editor.putString("user", gson.toJson(testEmployee));
-            editor.apply();
-            startActivity(new Intent(this, HomepageActivity.class));
-        }else{
-            Log.e(TAG, "Invalid credentials");
-            runAlertDialog("Invalid credentials",
-                    "Oops! Something went wrong!\nMake sure your username and password is correct.");
+            if (authenticate) {
+                Log.i(TAG, "User token retrieved.");
+                Employee testEmployee = TestCreator.getTestUser();
+                editor.putString("user", gson.toJson(testEmployee)).commit();
+                startActivity(new Intent(this, Homepage2Activity.class));
+            } else {
+                Log.e(TAG, "Invalid credentials");
+                runAlertDialog("Invalid credentials",
+                        "Oops! Something went wrong!\nMake sure your username and password is correct.");
+            }
+        } catch(Exception e){
+            e.printStackTrace();
         }
     }
 
