@@ -98,6 +98,18 @@
             android:name=".Activity.Homepage2Activity"
             android:label="@string/title_activity_homepage2" >
         </activity>
+        <activity
+            android:name=".Activity.CanteenSelectorActivity"
+            android:label="@string/title_activity_canteen_selector" >
+        </activity>
+        <activity
+            android:name=".Activity.FoodMenuActivity"
+            android:label="@string/title_activity_food_menu"
+            android:parentActivityName=".Activity.CanteenSelectorActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="arnold.eureka_mobile.Activity.CanteenSelectorActivity" />
+        </activity>
     </application>
 
 </manifest>

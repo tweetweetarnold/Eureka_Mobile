@@ -87,23 +87,6 @@ public class HomepageActivity extends AppCompatActivity {
 
     }
 
-//    public void doButton3(View view){
-//        final TextView tv = (TextView) findViewById(R.id.sample_text);
-//        String url = "https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA";
-//
-//        StringRequest request = new StringRequest(url, new Response.Listener<String>() {
-//            @Override
-//            public void onResponse(String s) {
-//                tv.setText(s);
-//            }
-//        }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError volleyError) {
-//                Log.e(TAG, "Error message");
-//            }
-//        });
-//        NetworkSingleton.getInstance(getApplicationContext()).addToRequestQueue(request);
-//    }
 
     public void doButton2(View view){
         Toast.makeText(this, "Notification testing", Toast.LENGTH_SHORT).show();

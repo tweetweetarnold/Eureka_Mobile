@@ -5,10 +5,14 @@
     <color name="blue_login">#FF4D86B3</color>
     <color name="red">#FF0000</color>
     <color name="purple">#800080</color>
+    <color name="lighter_purple">#661787</color>
     <color name="indigo">#4B0082</color>
     <color name="purple_jam">#6A287E</color>
     <color name="list_border">#ffa8a8a4</color>
+    <color name="grey">#B0B0B0</color>
 
-    <color name="drawer_item_bg">#661787</color>
+    <color name="drawer_bg">@color/grey</color>
+    <color name="drawer_item_bg">@color/lighter_purple</color>
+
 
 </resources>

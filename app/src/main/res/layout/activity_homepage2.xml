@@ -1,5 +1,27 @@
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/fragment"
-    android:name="arnold.eureka_mobile.Fragment.Homepage2Fragment"
-    tools:layout="@layout/fragment_homepage2" android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <fragment
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/fragment"
+        android:name="arnold.eureka_mobile.Fragment.Homepage2Fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout="@layout/fragment_homepage2" />
+
+    <ListView
+        android:id="@+id/drawer_list"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/drawer_bg"
+        android:choiceMode="singleChoice"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="5sp"
+        android:padding="20sp" />
+
+</android.support.v4.widget.DrawerLayout>
