@@ -108,7 +108,11 @@
         </activity>
         <activity
             android:name=".Activity.StallSelectorActivity"
-            android:label="@string/title_activity_stall_selector" >
+            android:label="@string/title_activity_stall_selector"
+            android:parentActivityName=".Activity.HomepageActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="arnold.eureka_mobile.Activity.HomepageActivity" />
         </activity>
     </application>
 
