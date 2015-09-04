@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import arnold.eureka_mobile.Fragment.CanteenSelectorFragment;
 import arnold.eureka_mobile.Fragment.FavouritesFragment;
-import arnold.eureka_mobile.Fragment.HomepageFragment;
+import arnold.eureka_mobile.Fragment.OrderHistoryFragment;
 
 public class HomepageTabsPagerAdapter extends FragmentPagerAdapter {
     public HomepageTabsPagerAdapter (FragmentManager fm){
@@ -18,7 +18,7 @@ public class HomepageTabsPagerAdapter extends FragmentPagerAdapter {
         Fragment fragment = null;
             switch(i){
                 case 0:
-                    fragment = new HomepageFragment();
+                    fragment = new OrderHistoryFragment();
                     break;
                 case 1:
                     fragment = new CanteenSelectorFragment();
