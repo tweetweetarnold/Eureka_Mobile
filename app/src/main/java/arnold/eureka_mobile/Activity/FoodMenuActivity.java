@@ -26,123 +26,96 @@ public class FoodMenuActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_food_menu);
+        setContentView(R.layout.recyclerview);
 
-
+        loadRecyclerView();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_food_menu, menu);
-        return true;
+    public void loadRecyclerView(){
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        recyclerView.setHasFixedSize(true);
+
+        // use a linear layout manager
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+
+        // specify an adapter (see also next example)
+//        ArrayList<Task> taskList = TestCreator.createTestTasks2();
+//        ArrayList<Task> myDataset = taskList;
+        Set<Food> dataSet = new HashSet<>();
+        dataSet.add(new Food());
+        dataSet.add(new Food());
+        dataSet.add(new Food());
+        RecyclerView.Adapter taskListAdapter = new FavouritesAdapter(dataSet);
+        recyclerView.setAdapter(taskListAdapter);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    public static class FavouritesAdapter extends RecyclerView.Adapter<FavouritesAdapter.ViewHolder> {
+        private Set<Food> dataSet;
+        //        Gson gson = new GsonBuilder().setDateFormat(R.string.date_format).create();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        // constructor
+        public FavouritesAdapter(Set<Food> dataSet) {
+            this.dataSet = dataSet;
         }
 
-        return super.onOptionsItemSelected(item);
-    }
-
-//    public void loadRecyclerView(){
-//        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-//
-//        // use this setting to improve performance if you know that changes
-//        // in content do not change the layout size of the RecyclerView
-//        recyclerView.setHasFixedSize(true);
-//
-//        // use a linear layout manager
-//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-//        recyclerView.setLayoutManager(layoutManager);
-//
-//        // specify an adapter (see also next example)
-////        ArrayList<Task> taskList = TestCreator.createTestTasks1();
-////        ArrayList<Task> myDataset = taskList;
-//        Set<Food> list = new HashSet<>();
-//        list.add(new Food());
-//        list.add(new Food());
-//        list.add(new Food());
-//        RecyclerView.Adapter listAdapter = new ListAdapter(list);
-//        recyclerView.setAdapter(listAdapter);
-//    }
-//
-//    public static class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
-//        private Set<Food> dataSet;
-//
-//        // Provide a reference to the views for each data item
-//        // Complex data items may need more than one view per item, and
-//        // you provide access to all the views for a data item in a view holder
-//        public class ViewHolder extends RecyclerView.ViewHolder {
+        // Provide a reference to the views for each data item
+        // Complex data items may need more than one view per item, and
+        // you provide access to all the views for a data item in a view holder
+        public class ViewHolder extends RecyclerView.ViewHolder {
 //            public View view;
 //            public TextView recipient;
 //            public TextView address;
 //            public TextView time;
 //            public TextView orderNo;
-//
-//            public ViewHolder(View v) {
-//                super(v);
+
+            public ViewHolder(View v) {
+                super(v);
 //                view = v;
-//
-////                recipient = (TextView)view.findViewById(R.id.content_receiver);
-////                address = (TextView)view.findViewById(R.id.content_address);
-////                time = (TextView)view.findViewById(R.id.content_time);
-////                orderNo = (TextView)view.findViewById(R.id.content_orderNo);
-//
-//                v.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-////                        Context context = v.getContext();
-////                        int position = getPosition();
-////                        Task selectedTask = dataSet.get(position);
-////                        Log.d(TAG, "Position selected: " + position);
-////
-////                        Intent intent = new Intent(context, TaskActivity.class);
-////                        intent.putExtra("task", gson.toJson(selectedTask));
-////                        context.startActivity(intent);
-//                    }
-//                });
-//            }
-//        }
-//
-//        //        constructor
-//        public ListAdapter(Set<Food> myDataset) {
-//            dataSet = myDataset;
-//        }
-//
-//        // Create new views (invoked by the layout manager)
-//        @Override
-//        public ListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-//            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.foodlist, parent, false); // create a new view
-//            ViewHolder vh = new ViewHolder(v); // set the view's size, margins, paddings and layout parameters
-//            return vh;
-//        }
-//
-//        // Replace the contents of a view (invoked by the layout manager)
-//        @Override
-//        public void onBindViewHolder(ViewHolder holder, int position) {
-//            // - get element from your dataset at this position
-//            // - replace the contents of the view with that element
-//
-////            holder.recipient.setText(dataSet.get(position).getReceiverName());
-////            holder.address.setText(dataSet.get(position).getEndAddress());
-//////            holder.time.setText(dataSet.get(position).getPlanEndTime().toString());
-////            holder.orderNo.setText(String.valueOf(dataSet.get(position).getTaskId()));
-//        }
-//
-//        // Return the size of your dataset (invoked by the layout manager)
-//        @Override
-//        public int getItemCount() {
-//            return dataSet.size();
-//        }
-//
-//    }
+
+//                recipient = (TextView)view.findViewById(R.id.content_receiver);
+//                address = (TextView)view.findViewById(R.id.content_address);
+//                time = (TextView)view.findViewById(R.id.content_time);
+//                orderNo = (TextView)view.findViewById(R.id.content_orderNo);
+
+                v.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                    }
+                });
+            }
+        }
+
+        // Create new views (invoked by the layout manager)
+        @Override
+        public FavouritesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_food, parent, false); // create a new view
+            ViewHolder vh = new ViewHolder(v); // set the view's size, margins, paddings and layout parameters
+            return vh;
+        }
+
+        // Replace the contents of a view (invoked by the layout manager)
+        @Override
+        public void onBindViewHolder(ViewHolder holder, int position) {
+            // - get element from your dataset at this position
+            // - replace the contents of the view with that element
+
+//            holder.recipient.setText(dataSet.get(position).getReceiverName());
+//            holder.address.setText(dataSet.get(position).getEndAddress());
+////            holder.time.setText(dataSet.get(position).getPlanEndTime().toString());
+//            holder.orderNo.setText(String.valueOf(dataSet.get(position).getTaskId()));
+        }
+
+        // Return the size of your dataset (invoked by the layout manager)
+        @Override
+        public int getItemCount() {
+            return dataSet.size();
+        }
+
+    }
+
+
 }
