@@ -4,6 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import arnold.eureka_mobile.Fragment.CanteenSelectorFragment;
+import arnold.eureka_mobile.Fragment.FavouritesFragment;
 import arnold.eureka_mobile.Fragment.HomepageFragment;
 
 public class HomepageTabsPagerAdapter extends FragmentPagerAdapter {
@@ -19,10 +21,10 @@ public class HomepageTabsPagerAdapter extends FragmentPagerAdapter {
                     fragment = new HomepageFragment();
                     break;
                 case 1:
-                    fragment = new HomepageFragment();
+                    fragment = new CanteenSelectorFragment();
                     break;
                 case 2:
-                    fragment = new HomepageFragment();
+                    fragment = new FavouritesFragment();
                     break;
             }
         return fragment;

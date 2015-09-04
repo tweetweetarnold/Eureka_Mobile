@@ -14,7 +14,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Layout;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -23,18 +22,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import arnold.eureka_mobile.Adapter.HomepageTabsPagerAdapter;
-import arnold.eureka_mobile.Connection.NetworkSingleton;
 import arnold.eureka_mobile.R;
 
 public class HomepageActivity extends AppCompatActivity {
@@ -44,16 +37,12 @@ public class HomepageActivity extends AppCompatActivity {
     private SharedPreferences sharedPref;
     private SharedPreferences.Editor editor;
     private ActionBar actionBar;
-
     private ViewPager viewPager;
     private DrawerLayout drawerLayout;
     private LinearLayout drawer;
 
-//    String[] tabList = getResources().getStringArray(R.array.tabList); //items in tabs
-//    String[] drawerList = getResources().getStringArray(R.array.drawerList); //items in drawer
-
-    String[] tabList = new String[]{"Tab 1", "Food", "Tab3 "};
-    String[] drawerList = new String[]{"My Profile", "Canteen", "Maps", "Logout"};
+    private String[] tabList;
+    private String[] drawerList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,33 +50,37 @@ public class HomepageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_homepage);
 
         try {
-//            setting actionbar display
+            // initialize builders
+            gson = new GsonBuilder().create();
+            sharedPref = getSharedPreferences(getString(R.string.app_key), MODE_PRIVATE);
+            editor = sharedPref.edit();
+
+            // load string arrays
+            tabList = getResources().getStringArray(R.array.tabList);
+            drawerList = getResources().getStringArray(R.array.drawerList);
+
+            // load actionbar and set its display
             actionBar = getSupportActionBar();
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_white_18dp);
+
+            // START: order is important here
+            loadSwipeView(); //load swipe view
+            loadActionBarTabs(); //load Action bar tabs
+            loadDrawer(); //load Drawer
+            // END: order is important here
+
+            viewPager.setCurrentItem(1); // load the tab position
+
         }catch(NullPointerException e){
+            Log.e(TAG, "Eureka error at HomepageActivty onCreate. Message: " + e.getMessage());
             e.getStackTrace();
-            Log.e(TAG, "Error Message: " + e.getMessage());
-            Log.e(TAG, "Action bar is null");
         }
 
-//        initialize
-        gson = new GsonBuilder().create();
-        sharedPref = getSharedPreferences(getString(R.string.app_key), MODE_PRIVATE);
-        editor = sharedPref.edit();
-
-        loadSwipeView(); //load swipe view
-        loadActionBarTabs(); //load Action bar tabs
-        loadDrawer(); //load Drawer
-
-        viewPager.setCurrentItem(1);
-
-        Toast.makeText(HomepageActivity.this, "Welcome user!", Toast.LENGTH_SHORT).show();
-
-
+        Toast.makeText(this, "Welcome user!", Toast.LENGTH_SHORT).show(); // welcome toast message
     }
 
-
+    // TODO: Test notification codes
     public void doButton2(View view){
         Toast.makeText(this, "Notification testing", Toast.LENGTH_SHORT).show();
 
@@ -115,10 +108,9 @@ public class HomepageActivity extends AppCompatActivity {
 
     }
 
-//    load resources for action bar tabs view
+    //    load resources for action bar tabs view
     public void loadActionBarTabs(){
-        actionBar = getSupportActionBar();
-        actionBar.setNavigationMode(android.support.v7.app.ActionBar.NAVIGATION_MODE_TABS);
+        actionBar.setNavigationMode(android.support.v7.app.ActionBar.NAVIGATION_MODE_TABS); // set the tab type
         android.support.v7.app.ActionBar.TabListener tabListener = new android.support.v7.app.ActionBar.TabListener() {
             @Override
             public void onTabSelected(android.support.v7.app.ActionBar.Tab tab, android.support.v4.app.FragmentTransaction ft) {
@@ -139,7 +131,7 @@ public class HomepageActivity extends AppCompatActivity {
         }
     }
 
-//    load resources to enable swipe navigation
+    //    load resources to enable swipe navigation
     public void loadSwipeView(){
         viewPager = (ViewPager) findViewById(R.id.homepage_pager);
         viewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
@@ -152,7 +144,7 @@ public class HomepageActivity extends AppCompatActivity {
         viewPager.setAdapter(homepageTabsPagerAdapter);
     }
 
-//    load resources to enable side drawer
+    //    load resources to enable side drawer
     public void loadDrawer(){
         final ArrayAdapter<String> drawerAdapter = new ArrayAdapter<>(this, R.layout.drawer_item, drawerList);
 
@@ -208,14 +200,13 @@ public class HomepageActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-//    to process logout
     public void processLogout(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Logout confirmation").setMessage("Leaving so soon? We will miss you");
         builder.setPositiveButton("Yes, I'm leaving!", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int id) {
-                editor.clear().apply();
+                editor.clear().apply(); // to clear saved token and user profiles in editor
                 finish();
             }
         });

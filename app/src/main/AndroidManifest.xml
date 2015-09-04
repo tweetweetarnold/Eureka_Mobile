@@ -95,10 +95,6 @@
             android:label="@string/title_activity_sign_up" >
         </activity>
         <activity
-            android:name=".Activity.Homepage2Activity"
-            android:label="@string/title_activity_homepage2" >
-        </activity>
-        <activity
             android:name=".Activity.CanteenSelectorActivity"
             android:label="@string/title_activity_canteen_selector" >
         </activity>
@@ -109,6 +105,10 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="arnold.eureka_mobile.Activity.CanteenSelectorActivity" />
+        </activity>
+        <activity
+            android:name=".Activity.StallSelectorActivity"
+            android:label="@string/title_activity_stall_selector" >
         </activity>
     </application>
 

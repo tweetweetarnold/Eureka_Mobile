@@ -7,19 +7,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import java.util.HashSet;
 import java.util.Set;
 
 import arnold.eureka_mobile.Entity.Food;
+import arnold.eureka_mobile.Entity.Hawker;
 import arnold.eureka_mobile.R;
 
-public class FoodListFragment extends Fragment {
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-
-    public FoodListFragment() {
-    }
+public class FavouritesFragment extends android.support.v4.app.Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,13 +25,14 @@ public class FoodListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.list_canteen, container, false);
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.recyclerview, container, false);
         loadRecyclerView(view);
         return view;
     }
 
     public void loadRecyclerView(View view){
-        RecyclerView recyclerView = (RecyclerView)view.findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
 
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
@@ -46,32 +43,38 @@ public class FoodListFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
         // specify an adapter (see also next example)
-//        ArrayList<Task> taskList = TestCreator.createTestTasks1();
+//        ArrayList<Task> taskList = TestCreator.createTestTasks2();
 //        ArrayList<Task> myDataset = taskList;
-        Set<Food> list = new HashSet<>();
-        list.add(new Food());
-        list.add(new Food());
-        list.add(new Food());
-        RecyclerView.Adapter listAdapter = new ListAdapter(list);
-        recyclerView.setAdapter(listAdapter);
+        Set<Food> dataSet = new HashSet<>();
+        dataSet.add(new Food());
+        dataSet.add(new Food());
+        dataSet.add(new Food());
+        RecyclerView.Adapter taskListAdapter = new FavouritesAdapter(dataSet);
+        recyclerView.setAdapter(taskListAdapter);
     }
 
-    public static class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
+    public static class FavouritesAdapter extends RecyclerView.Adapter<FavouritesAdapter.ViewHolder> {
         private Set<Food> dataSet;
+        //        Gson gson = new GsonBuilder().setDateFormat(R.string.date_format).create();
+
+        // constructor
+        public FavouritesAdapter(Set<Food> dataSet) {
+            this.dataSet = dataSet;
+        }
 
         // Provide a reference to the views for each data item
         // Complex data items may need more than one view per item, and
         // you provide access to all the views for a data item in a view holder
         public class ViewHolder extends RecyclerView.ViewHolder {
-            public View view;
-            public TextView recipient;
-            public TextView address;
-            public TextView time;
-            public TextView orderNo;
+//            public View view;
+//            public TextView recipient;
+//            public TextView address;
+//            public TextView time;
+//            public TextView orderNo;
 
             public ViewHolder(View v) {
                 super(v);
-                view = v;
+//                view = v;
 
 //                recipient = (TextView)view.findViewById(R.id.content_receiver);
 //                address = (TextView)view.findViewById(R.id.content_address);
@@ -94,15 +97,12 @@ public class FoodListFragment extends Fragment {
             }
         }
 
-        //        constructor
-        public ListAdapter(Set<Food> myDataset) {
-            dataSet = myDataset;
-        }
+
 
         // Create new views (invoked by the layout manager)
         @Override
-        public ListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.foodlist, parent, false); // create a new view
+        public FavouritesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_favourites, parent, false); // create a new view
             ViewHolder vh = new ViewHolder(v); // set the view's size, margins, paddings and layout parameters
             return vh;
         }
@@ -126,6 +126,5 @@ public class FoodListFragment extends Fragment {
         }
 
     }
-
 
 }

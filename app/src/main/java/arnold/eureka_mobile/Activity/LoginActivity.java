@@ -6,12 +6,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.RequestFuture;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookSdk;
@@ -23,13 +20,9 @@ import com.google.gson.GsonBuilder;
 
 import org.json.JSONObject;
 
-import java.util.concurrent.TimeUnit;
-
 import arnold.eureka_mobile.Connection.NetworkSingleton;
 import arnold.eureka_mobile.Controller.LoginController;
-import arnold.eureka_mobile.Entity.Employee;
 import arnold.eureka_mobile.R;
-import arnold.eureka_mobile.TestCreator;
 
 public class LoginActivity extends Activity {
 
@@ -37,7 +30,6 @@ public class LoginActivity extends Activity {
     private Gson gson;
     private SharedPreferences sharedPref;
     private SharedPreferences.Editor editor;
-    private CallbackManager callbackManager;
     private NetworkSingleton network;
     private AccessToken token;
 
@@ -108,19 +100,21 @@ public class LoginActivity extends Activity {
 
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        callbackManager.onActivityResult(requestCode, resultCode, data);
-    }
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        callbackManager.onActivityResult(requestCode, resultCode, data);
+//    }
 
     @Override
     protected void onResume() {
         super.onResume();
+        // TODO: To be removed after testing
         TextView inputUsername = (TextView) findViewById(R.id.login_username);
         TextView inputPassword = (TextView) findViewById(R.id.login_password);
         inputUsername.setText("abc");
         inputPassword.setText("123");
+        // TODO: To be removed after testing
     }
 
     public void onLoginButtonClick(View view){
@@ -129,23 +123,9 @@ public class LoginActivity extends Activity {
         String strUsername = inputUsername.getText().toString();
         String strPassword = inputPassword.getText().toString();
 
-        try {
-            LoginController loginController = new LoginController(this);
-            boolean authenticate = loginController.authenticateUser(strUsername, strPassword);
-
-            if (authenticate) {
-                Log.i(TAG, "User token retrieved.");
-                Employee testEmployee = TestCreator.getTestUser();
-                editor.putString("user", gson.toJson(testEmployee)).commit();
-                startActivity(new Intent(this, Homepage2Activity.class));
-            } else {
-                Log.e(TAG, "Invalid credentials");
-                runAlertDialog("Invalid credentials",
-                        "Oops! Something went wrong!\nMake sure your username and password is correct.");
-            }
-        } catch(Exception e){
-            e.printStackTrace();
-        }
+        // retrieves the LoginController which handles the processing logic
+        LoginController loginController = new LoginController(this);
+        loginController.processUserCredentialsTEST(strUsername, strPassword); // process logic
     }
 
     public void goToSignUp(View view){

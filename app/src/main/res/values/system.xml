@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="JSON_STATUS">status</string>
+    <string name="JSON_MESSAGE">message</string>
+
+    <string name="JSON_STATUS_PASS">OK</string>
+    <string name="JSON_STATUS_FAIL">error</string>
+</resources>

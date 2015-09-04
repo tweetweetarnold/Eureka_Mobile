@@ -14,6 +14,8 @@ public class Hawker {
 	private Set<Food> foodList;
 	private Set<OperationDayHours> operatingHours;
 
+	public Hawker(){}
+
 	public Hawker(String username, String password, String name,
 			long contactNo, Canteen canteen, Date createDate,
 			Set<Food> foodList, Set<OperationDayHours> operatingHours) {

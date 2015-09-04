@@ -43,11 +43,12 @@
     </string-array>
 
     <string-array name="tabList">
-        <item>Tab 1</item>
-        <item>Food</item>
-        <item>Tab 3</item>
+        <item>Orders</item>
+        <item>Canteen</item>
+        <item>Favourites</item>
     </string-array>
     <string name="title_activity_homepage2">Homepage2Activity</string>
     <string name="title_activity_canteen_selector">CanteenSelectorActivity</string>
     <string name="title_activity_food_menu">FoodMenuActivity</string>
+    <string name="title_activity_stall_selector">StallSelectorActivity</string>
 </resources>
