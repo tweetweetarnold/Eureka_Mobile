@@ -15,7 +15,7 @@ import arnold.eureka_mobile.Connection.NetworkSingleton;
 import arnold.eureka_mobile.Entity.Employee;
 import arnold.eureka_mobile.R;
 
-public class ProfileActivity extends AppCompatActivity {
+public class EmployeeProfileActivity extends AppCompatActivity {
 
     private static final String TAG = "eureka/ProfileAct";
     private SharedPreferences sharedPref;
@@ -27,7 +27,7 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_employee_profile);
 
 //        initialize
         gson = new GsonBuilder().create();

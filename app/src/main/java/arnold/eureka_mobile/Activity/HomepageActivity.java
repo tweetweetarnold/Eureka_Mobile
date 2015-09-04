@@ -165,7 +165,7 @@ public class HomepageActivity extends AppCompatActivity {
                 } else {
                     switch (itemTitle) {
                         case "My Profile":
-                            intent = new Intent(context, ProfileActivity.class);
+                            intent = new Intent(context, EmployeeProfileActivity.class);
                             break;
                         case "Canteen":
                             intent = new Intent(context, CanteenActivity.class);

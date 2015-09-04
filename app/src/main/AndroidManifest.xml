@@ -33,7 +33,7 @@
                 android:value="arnold.eureka_mobile.Activity.HomepageActivity" />
         </activity>
         <activity
-            android:name=".Activity.ProfileActivity"
+            android:name=".Activity.EmployeeProfileActivity"
             android:label="@string/title_activity_profile"
             android:parentActivityName=".Activity.HomepageActivity" >
             <meta-data
