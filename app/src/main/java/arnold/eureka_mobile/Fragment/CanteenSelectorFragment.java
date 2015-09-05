@@ -94,7 +94,7 @@ public class CanteenSelectorFragment extends android.support.v4.app.Fragment {
         // Create new views (invoked by the layout manager)
         @Override
         public CanteenSelectorAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_canteen, parent, false); // create a new view
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.itemlist_canteen, parent, false); // create a new view
             ViewHolder vh = new ViewHolder(v); // set the view's size, margins, paddings and layout parameters
             return vh;
         }

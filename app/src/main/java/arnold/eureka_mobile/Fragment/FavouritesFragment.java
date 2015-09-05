@@ -1,6 +1,5 @@
 package arnold.eureka_mobile.Fragment;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,7 +11,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import arnold.eureka_mobile.Entity.Food;
-import arnold.eureka_mobile.Entity.Hawker;
 import arnold.eureka_mobile.R;
 
 public class FavouritesFragment extends android.support.v4.app.Fragment {
@@ -102,7 +100,7 @@ public class FavouritesFragment extends android.support.v4.app.Fragment {
         // Create new views (invoked by the layout manager)
         @Override
         public FavouritesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_favourites, parent, false); // create a new view
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.itemlist_favourites, parent, false); // create a new view
             ViewHolder vh = new ViewHolder(v); // set the view's size, margins, paddings and layout parameters
             return vh;
         }

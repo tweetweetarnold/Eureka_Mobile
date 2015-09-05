@@ -1,20 +1,13 @@
 package arnold.eureka_mobile.Activity;
 
-import android.content.Context;
-import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -92,7 +85,7 @@ public class SelectFoodActivity extends ActionBarActivity {
         // Create new views (invoked by the layout manager)
         @Override
         public FavouritesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_food, parent, false); // create a new view
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.itemlist_food, parent, false); // create a new view
             ViewHolder vh = new ViewHolder(v); // set the view's size, margins, paddings and layout parameters
             return vh;
         }

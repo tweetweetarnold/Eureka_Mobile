@@ -91,7 +91,7 @@ public class SelectStallActivity extends ActionBarActivity {
         // Create new views (invoked by the layout manager)
         @Override
         public FavouritesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_stall_selector, parent, false); // create a new view
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.itemlist_stall, parent, false); // create a new view
             ViewHolder vh = new ViewHolder(v); // set the view's size, margins, paddings and layout parameters
             return vh;
         }
