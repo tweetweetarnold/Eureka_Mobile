@@ -106,17 +106,6 @@ public class LoginActivity extends Activity {
 //        callbackManager.onActivityResult(requestCode, resultCode, data);
 //    }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        // TODO: To be removed after testing
-        TextView inputUsername = (TextView) findViewById(R.id.login_username);
-        TextView inputPassword = (TextView) findViewById(R.id.login_password);
-        inputUsername.setText("abc");
-        inputPassword.setText("123");
-        // TODO: To be removed after testing
-    }
-
     public void onLoginButtonClick(View view){
         TextView inputUsername = (TextView) findViewById(R.id.login_username);
         TextView inputPassword = (TextView) findViewById(R.id.login_password);
@@ -125,7 +114,7 @@ public class LoginActivity extends Activity {
 
         // retrieves the LoginController which handles the processing logic
         LoginController loginController = new LoginController(this);
-        loginController.processUserCredentialsTEST(strUsername, strPassword); // process logic
+        loginController.processUserCredentialsTEST(strUsername, strPassword); // process logic TODO: TESTING only
     }
 
     public void goToSignUp(View view){
