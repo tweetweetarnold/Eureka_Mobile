@@ -9,7 +9,7 @@ import android.view.View;
 
 import arnold.eureka_mobile.R;
 
-public class CanteenSelectorActivity extends ActionBarActivity {
+public class SelectCanteenActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

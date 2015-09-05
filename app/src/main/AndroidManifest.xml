@@ -95,16 +95,16 @@
             android:label="@string/title_activity_sign_up" >
         </activity>
         <activity
-            android:name=".Activity.CanteenSelectorActivity"
+            android:name=".Activity.SelectCanteenActivity"
             android:label="@string/title_activity_canteen_selector" >
         </activity>
         <activity
             android:name=".Activity.SelectFoodActivity"
             android:label="@string/title_activity_food_menu"
-            android:parentActivityName=".Activity.CanteenSelectorActivity" >
+            android:parentActivityName=".Activity.SelectCanteenActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="arnold.eureka_mobile.Activity.CanteenSelectorActivity" />
+                android:value=".Activity.SelectCanteenActivity" />
         </activity>
         <activity
             android:name=".Activity.SelectStallActivity"
