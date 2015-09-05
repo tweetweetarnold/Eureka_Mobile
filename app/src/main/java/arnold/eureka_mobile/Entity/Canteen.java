@@ -2,6 +2,7 @@ package arnold.eureka_mobile.Entity;
 
 import com.google.android.gms.maps.model.LatLng;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Set;
 
@@ -12,10 +13,10 @@ public class Canteen {
 	private String address;
 	private LatLng location;
 	private Date createDate;
-	private Set<Hawker> hawkerList;
+	private ArrayList<Hawker> hawkerList;
 
 	public Canteen(String name, String address, LatLng location,
-			Date createDate, Set<Hawker> hawkerList) {
+			Date createDate, ArrayList<Hawker> hawkerList) {
 		super();
 		this.name = name;
 		this.address = address;
@@ -56,11 +57,11 @@ public class Canteen {
 		this.createDate = createDate;
 	}
 
-	public Set<Hawker> getHawkerList() {
+	public ArrayList<Hawker> getHawkerList() {
 		return hawkerList;
 	}
 
-	public void setHawkerList(Set<Hawker> hawkerList) {
+	public void setHawkerList(ArrayList<Hawker> hawkerList) {
 		this.hawkerList = hawkerList;
 	}
 

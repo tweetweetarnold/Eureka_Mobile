@@ -31,7 +31,7 @@
                     android:text="Canteen:"
                     android:textSize="20sp"/>
                 <TextView
-                    android:id="@+id/content_canteen"
+                    android:id="@+id/canteenName"
                     android:layout_weight="2"
                     android:width="0dp"
                     android:paddingLeft="5sp"
@@ -50,7 +50,7 @@
                     android:paddingRight="5sp"
                     android:text="Address:"/>
                 <TextView
-                    android:id="@+id/content_stall"
+                    android:id="@+id/canteenAddress"
                     android:layout_weight="2"
                     android:width="0dp"
                     android:paddingLeft="5sp"

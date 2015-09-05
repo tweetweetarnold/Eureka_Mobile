@@ -107,7 +107,7 @@
                 android:value=".Activity.SelectCanteenActivity" />
         </activity>
         <activity
-            android:name=".Activity.SelectStallActivity"
+            android:name=".Activity.SelectHawkerActivity"
             android:label="@string/title_activity_stall_selector"
             android:parentActivityName=".Activity.Homepage.HomepageActivity">
             <meta-data

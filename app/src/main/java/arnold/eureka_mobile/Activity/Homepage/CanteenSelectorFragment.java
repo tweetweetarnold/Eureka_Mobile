@@ -9,21 +9,27 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
-import java.util.HashSet;
-import java.util.Set;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
-import arnold.eureka_mobile.Activity.SelectStallActivity;
-import arnold.eureka_mobile.Entity.Hawker;
+import java.util.ArrayList;
+
+import arnold.eureka_mobile.Activity.SelectHawkerActivity;
+import arnold.eureka_mobile.Entity.Canteen;
 import arnold.eureka_mobile.R;
+import arnold.eureka_mobile.TestCreator;
 
 public class CanteenSelectorFragment extends android.support.v4.app.Fragment {
 
     private static final String TAG = "CanteenSelectorFrag";
+    private static Gson gson;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        gson = new GsonBuilder().create();
     }
 
     @Override
@@ -45,51 +51,18 @@ public class CanteenSelectorFragment extends android.support.v4.app.Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
 
-        // specify an adapter (see also next example)
-//        ArrayList<Task> taskList = TestCreator.createTestTasks2();
-//        ArrayList<Task> myDataset = taskList;
-        Set<Hawker> dataSet = new HashSet<>();
-        dataSet.add(new Hawker());
-        dataSet.add(new Hawker());
-        dataSet.add(new Hawker());
+        ArrayList<Canteen> dataSet = TestCreator.getTestCanteenList(); // TODO: Testing only
         RecyclerView.Adapter taskListAdapter = new CanteenSelectorAdapter(dataSet);
         recyclerView.setAdapter(taskListAdapter);
     }
 
     public static class CanteenSelectorAdapter extends RecyclerView.Adapter<CanteenSelectorAdapter.ViewHolder> {
-        private Set<Hawker> dataSet;
+        private ArrayList<Canteen> list;
 
         // constructor
-        public CanteenSelectorAdapter(Set<Hawker> dataSet) {
-            this.dataSet = dataSet;
+        public CanteenSelectorAdapter(ArrayList<Canteen> dataSet) {
+            this.list = dataSet;
         }
-
-        // Provide a reference to the views for each data item
-        // Complex data items may need more than one view per item, and
-        // you provide access to all the views for a data item in a view holder
-        public class ViewHolder extends RecyclerView.ViewHolder {
-
-            public ViewHolder(View v) {
-                super(v);
-//                view = v;
-//                recipient = (TextView)view.findViewById(R.id.content_receiver);
-
-                v.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Context context = v.getContext(); // get context
-
-//                        int position = getPosition();
-//                        Task selectedTask = dataSet.get(position);
-
-                        Log.i(TAG, "Starting SelectStallActivity");
-                        context.startActivity(new Intent(context, SelectStallActivity.class));
-                    }
-                });
-            }
-        }
-
-
 
         // Create new views (invoked by the layout manager)
         @Override
@@ -104,35 +77,42 @@ public class CanteenSelectorFragment extends android.support.v4.app.Fragment {
         public void onBindViewHolder(ViewHolder holder, int position) {
             // - get element from your dataset at this position
             // - replace the contents of the view with that element
-//            holder.recipient.setText(dataSet.get(position).getReceiverName());
+            holder.canteenName.setText(list.get(position).getName());
+            holder.canteenAddress.setText(list.get(position).getAddress());
         }
 
-        // Provide a reference to the views for each data item
+        @Override
+        public int getItemCount() {
+            return list.size();
+        }
+// Provide a reference to the views for each data item
         // Complex data items may need more than one view per item, and
         // you provide access to all the views for a data item in a view holder
         public class ViewHolder extends RecyclerView.ViewHolder {
+            private TextView canteenName;
+            private TextView canteenAddress;
+
 
             public ViewHolder(View v) {
                 super(v);
-//                view = v;
-//                recipient = (TextView)view.findViewById(R.id.content_receiver);
+                canteenName = (TextView) v.findViewById(R.id.canteenName);
+                canteenAddress = (TextView) v.findViewById(R.id.canteenAddress);
 
                 v.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Context context = v.getContext(); // get context
 
-//                        int position = getPosition();
-//                        Task selectedTask = dataSet.get(position);
+                        int position = getPosition();
+                        Canteen selectedCanteen = list.get(position);
 
-                        Log.i(TAG, "Starting SelectStallActivity");
-                        context.startActivity(new Intent(context, SelectStallActivity.class));
+                        Intent intent = new Intent(context, SelectHawkerActivity.class);
+                        intent.putExtra("canteen", gson.toJson(selectedCanteen));
+                        Log.i(TAG, "Starting SelectHawkerActivity");
+                        context.startActivity(new Intent(context, SelectHawkerActivity.class));
                     }
                 });
             }
-        }        @Override
-        public int getItemCount() {
-            return dataSet.size();
         }
 
     }
