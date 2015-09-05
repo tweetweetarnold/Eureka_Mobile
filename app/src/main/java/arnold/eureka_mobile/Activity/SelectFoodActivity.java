@@ -21,7 +21,7 @@ import java.util.Set;
 import arnold.eureka_mobile.Entity.Food;
 import arnold.eureka_mobile.R;
 
-public class FoodMenuActivity extends ActionBarActivity {
+public class SelectFoodActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

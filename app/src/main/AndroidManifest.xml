@@ -99,7 +99,7 @@
             android:label="@string/title_activity_canteen_selector" >
         </activity>
         <activity
-            android:name=".Activity.FoodMenuActivity"
+            android:name=".Activity.SelectFoodActivity"
             android:label="@string/title_activity_food_menu"
             android:parentActivityName=".Activity.CanteenSelectorActivity" >
             <meta-data
@@ -107,7 +107,7 @@
                 android:value="arnold.eureka_mobile.Activity.CanteenSelectorActivity" />
         </activity>
         <activity
-            android:name=".Activity.StallSelectorActivity"
+            android:name=".Activity.SelectStallActivity"
             android:label="@string/title_activity_stall_selector"
             android:parentActivityName=".Activity.HomepageActivity">
             <meta-data

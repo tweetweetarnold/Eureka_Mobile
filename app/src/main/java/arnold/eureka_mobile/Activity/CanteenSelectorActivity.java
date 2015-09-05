@@ -41,6 +41,6 @@ public class CanteenSelectorActivity extends ActionBarActivity {
 
     public void goToMenu(View view){
         System.out.println("running gotomenu");
-        startActivity(new Intent(this, FoodMenuActivity.class));
+        startActivity(new Intent(this, SelectFoodActivity.class));
     }
 }

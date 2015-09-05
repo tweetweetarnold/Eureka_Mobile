@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -18,7 +16,7 @@ import java.util.Set;
 import arnold.eureka_mobile.Entity.Food;
 import arnold.eureka_mobile.R;
 
-public class StallSelectorActivity extends ActionBarActivity {
+public class SelectStallActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +80,7 @@ public class StallSelectorActivity extends ActionBarActivity {
                     @Override
                     public void onClick(View v) {
                         Context context = v.getContext();
-                        context.startActivity(new Intent(context, FoodMenuActivity.class));
+                        context.startActivity(new Intent(context, SelectFoodActivity.class));
                     }
                 });
             }

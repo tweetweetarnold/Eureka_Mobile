@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import java.util.HashSet;
 import java.util.Set;
 
-import arnold.eureka_mobile.Activity.StallSelectorActivity;
+import arnold.eureka_mobile.Activity.SelectStallActivity;
 import arnold.eureka_mobile.Entity.Hawker;
 import arnold.eureka_mobile.R;
 
@@ -82,8 +82,8 @@ public class CanteenSelectorFragment extends android.support.v4.app.Fragment {
 //                        int position = getPosition();
 //                        Task selectedTask = dataSet.get(position);
 
-                        Log.i(TAG, "Starting StallSelectorActivity");
-                        context.startActivity(new Intent(context, StallSelectorActivity.class));
+                        Log.i(TAG, "Starting SelectStallActivity");
+                        context.startActivity(new Intent(context, SelectStallActivity.class));
                     }
                 });
             }
