@@ -4,9 +4,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import arnold.eureka_mobile.Fragment.CanteenSelectorFragment;
-import arnold.eureka_mobile.Fragment.FavouritesFragment;
-import arnold.eureka_mobile.Fragment.OrderHistoryFragment;
+import arnold.eureka_mobile.Activity.Homepage.CanteenSelectorFragment;
+import arnold.eureka_mobile.Activity.Homepage.FavouritesFragment;
+import arnold.eureka_mobile.Activity.Homepage.OrderHistoryFragment;
 
 public class HomepageTabsPagerAdapter extends FragmentPagerAdapter {
     public HomepageTabsPagerAdapter (FragmentManager fm){

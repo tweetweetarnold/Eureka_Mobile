@@ -1,4 +1,4 @@
-package arnold.eureka_mobile.Fragment;
+package arnold.eureka_mobile.Activity.Homepage;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

@@ -21,24 +21,24 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activity.HomepageActivity"
+            android:name=".Activity.Homepage.HomepageActivity"
             android:label="@string/title_activity_homepage" >
         </activity>
         <activity
             android:name=".Activity.CanteenActivity"
             android:label="@string/title_activity_canteen"
-            android:parentActivityName=".Activity.HomepageActivity" >
+            android:parentActivityName=".Activity.Homepage.HomepageActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="arnold.eureka_mobile.Activity.HomepageActivity" />
+                android:value=".Activity.Homepage.HomepageActivity" />
         </activity>
         <activity
             android:name=".Activity.EmployeeProfileActivity"
             android:label="@string/title_activity_profile"
-            android:parentActivityName=".Activity.HomepageActivity" >
+            android:parentActivityName=".Activity.Homepage.HomepageActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="arnold.eureka_mobile.Activity.HomepageActivity" />
+                android:value=".Activity.Homepage.HomepageActivity" />
         </activity>
         <!-- for facebook -->
         <activity
@@ -50,26 +50,26 @@
         <activity
             android:name=".Activity.FavouritesActivity"
             android:label="@string/title_activity_favourites"
-            android:parentActivityName=".Activity.HomepageActivity" >
+            android:parentActivityName=".Activity.Homepage.HomepageActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="arnold.eureka_mobile.Activity.HomepageActivity" />
+                android:value=".Activity.Homepage.HomepageActivity" />
         </activity>
         <activity
             android:name=".Activity.MapActivity"
             android:label="@string/title_activity_maps"
-            android:parentActivityName=".Activity.HomepageActivity" >
+            android:parentActivityName=".Activity.Homepage.HomepageActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="arnold.eureka_mobile.Activity.HomepageActivity" />
+                android:value=".Activity.Homepage.HomepageActivity" />
         </activity>
         <activity
             android:name=".Activity.PaymentActivity"
             android:label="@string/title_activity_payment"
-            android:parentActivityName=".Activity.HomepageActivity" >
+            android:parentActivityName=".Activity.Homepage.HomepageActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="arnold.eureka_mobile.Activity.HomepageActivity" />
+                android:value=".Activity.Homepage.HomepageActivity" />
         </activity>
 
         <meta-data
@@ -109,10 +109,10 @@
         <activity
             android:name=".Activity.SelectStallActivity"
             android:label="@string/title_activity_stall_selector"
-            android:parentActivityName=".Activity.HomepageActivity">
+            android:parentActivityName=".Activity.Homepage.HomepageActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="arnold.eureka_mobile.Activity.HomepageActivity" />
+                android:value=".Activity.Homepage.HomepageActivity" />
         </activity>
     </application>
 

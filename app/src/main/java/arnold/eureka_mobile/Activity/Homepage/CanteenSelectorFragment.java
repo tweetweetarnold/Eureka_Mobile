@@ -1,8 +1,11 @@
-package arnold.eureka_mobile.Fragment;
+package arnold.eureka_mobile.Activity.Homepage;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,10 +13,13 @@ import android.view.ViewGroup;
 import java.util.HashSet;
 import java.util.Set;
 
-import arnold.eureka_mobile.Entity.Food;
+import arnold.eureka_mobile.Activity.SelectStallActivity;
+import arnold.eureka_mobile.Entity.Hawker;
 import arnold.eureka_mobile.R;
 
-public class FavouritesFragment extends android.support.v4.app.Fragment {
+public class CanteenSelectorFragment extends android.support.v4.app.Fragment {
+
+    private static final String TAG = "CanteenSelectorFrag";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -23,7 +29,6 @@ public class FavouritesFragment extends android.support.v4.app.Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.recyclerview, container, false);
         loadRecyclerView(view);
         return view;
@@ -43,20 +48,19 @@ public class FavouritesFragment extends android.support.v4.app.Fragment {
         // specify an adapter (see also next example)
 //        ArrayList<Task> taskList = TestCreator.createTestTasks2();
 //        ArrayList<Task> myDataset = taskList;
-        Set<Food> dataSet = new HashSet<>();
-        dataSet.add(new Food());
-        dataSet.add(new Food());
-        dataSet.add(new Food());
-        RecyclerView.Adapter taskListAdapter = new FavouritesAdapter(dataSet);
+        Set<Hawker> dataSet = new HashSet<>();
+        dataSet.add(new Hawker());
+        dataSet.add(new Hawker());
+        dataSet.add(new Hawker());
+        RecyclerView.Adapter taskListAdapter = new CanteenSelectorAdapter(dataSet);
         recyclerView.setAdapter(taskListAdapter);
     }
 
-    public static class FavouritesAdapter extends RecyclerView.Adapter<FavouritesAdapter.ViewHolder> {
-        private Set<Food> dataSet;
-        //        Gson gson = new GsonBuilder().setDateFormat(R.string.date_format).create();
+    public static class CanteenSelectorAdapter extends RecyclerView.Adapter<CanteenSelectorAdapter.ViewHolder> {
+        private Set<Hawker> dataSet;
 
         // constructor
-        public FavouritesAdapter(Set<Food> dataSet) {
+        public CanteenSelectorAdapter(Set<Hawker> dataSet) {
             this.dataSet = dataSet;
         }
 
@@ -64,32 +68,22 @@ public class FavouritesFragment extends android.support.v4.app.Fragment {
         // Complex data items may need more than one view per item, and
         // you provide access to all the views for a data item in a view holder
         public class ViewHolder extends RecyclerView.ViewHolder {
-//            public View view;
-//            public TextView recipient;
-//            public TextView address;
-//            public TextView time;
-//            public TextView orderNo;
 
             public ViewHolder(View v) {
                 super(v);
 //                view = v;
-
 //                recipient = (TextView)view.findViewById(R.id.content_receiver);
-//                address = (TextView)view.findViewById(R.id.content_address);
-//                time = (TextView)view.findViewById(R.id.content_time);
-//                orderNo = (TextView)view.findViewById(R.id.content_orderNo);
 
                 v.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-//                        Context context = v.getContext();
+                        Context context = v.getContext(); // get context
+
 //                        int position = getPosition();
 //                        Task selectedTask = dataSet.get(position);
-//                        Log.d(TAG, "Position selected: " + position);
-//
-//                        Intent intent = new Intent(context, TaskActivity.class);
-//                        intent.putExtra("task", gson.toJson(selectedTask));
-//                        context.startActivity(intent);
+
+                        Log.i(TAG, "Starting SelectStallActivity");
+                        context.startActivity(new Intent(context, SelectStallActivity.class));
                     }
                 });
             }
@@ -99,8 +93,8 @@ public class FavouritesFragment extends android.support.v4.app.Fragment {
 
         // Create new views (invoked by the layout manager)
         @Override
-        public FavouritesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.itemlist_favourites, parent, false); // create a new view
+        public CanteenSelectorAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.itemlist_canteen, parent, false); // create a new view
             ViewHolder vh = new ViewHolder(v); // set the view's size, margins, paddings and layout parameters
             return vh;
         }
@@ -110,19 +104,40 @@ public class FavouritesFragment extends android.support.v4.app.Fragment {
         public void onBindViewHolder(ViewHolder holder, int position) {
             // - get element from your dataset at this position
             // - replace the contents of the view with that element
-
 //            holder.recipient.setText(dataSet.get(position).getReceiverName());
-//            holder.address.setText(dataSet.get(position).getEndAddress());
-////            holder.time.setText(dataSet.get(position).getPlanEndTime().toString());
-//            holder.orderNo.setText(String.valueOf(dataSet.get(position).getTaskId()));
         }
 
-        // Return the size of your dataset (invoked by the layout manager)
-        @Override
+        // Provide a reference to the views for each data item
+        // Complex data items may need more than one view per item, and
+        // you provide access to all the views for a data item in a view holder
+        public class ViewHolder extends RecyclerView.ViewHolder {
+
+            public ViewHolder(View v) {
+                super(v);
+//                view = v;
+//                recipient = (TextView)view.findViewById(R.id.content_receiver);
+
+                v.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Context context = v.getContext(); // get context
+
+//                        int position = getPosition();
+//                        Task selectedTask = dataSet.get(position);
+
+                        Log.i(TAG, "Starting SelectStallActivity");
+                        context.startActivity(new Intent(context, SelectStallActivity.class));
+                    }
+                });
+            }
+        }        @Override
         public int getItemCount() {
             return dataSet.size();
         }
 
     }
+
+
+
 
 }

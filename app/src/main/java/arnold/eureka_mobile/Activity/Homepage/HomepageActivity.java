@@ -1,4 +1,4 @@
-package arnold.eureka_mobile.Activity;
+package arnold.eureka_mobile.Activity.Homepage;
 
 import android.app.AlertDialog;
 import android.app.NotificationManager;
@@ -27,6 +27,9 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import arnold.eureka_mobile.Activity.CanteenActivity;
+import arnold.eureka_mobile.Activity.EmployeeProfileActivity;
+import arnold.eureka_mobile.Activity.MapActivity;
 import arnold.eureka_mobile.Adapter.HomepageTabsPagerAdapter;
 import arnold.eureka_mobile.R;
 

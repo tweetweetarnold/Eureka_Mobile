@@ -5,26 +5,20 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Network;
 import android.util.Log;
 
 import com.android.volley.DefaultRetryPolicy;
-import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.RequestFuture;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Method;
-import java.util.concurrent.ExecutionException;
-
-import arnold.eureka_mobile.Activity.HomepageActivity;
+import arnold.eureka_mobile.Activity.Homepage.HomepageActivity;
 import arnold.eureka_mobile.Connection.NetworkSingleton;
 import arnold.eureka_mobile.Entity.Employee;
 import arnold.eureka_mobile.R;
