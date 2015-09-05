@@ -16,7 +16,7 @@ import java.util.Set;
 import arnold.eureka_mobile.Entity.Food;
 import arnold.eureka_mobile.R;
 
-public class SelectStallActivity extends ActionBarActivity {
+public class SelectHawkerActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +57,32 @@ public class SelectStallActivity extends ActionBarActivity {
             this.dataSet = dataSet;
         }
 
+        // Create new views (invoked by the layout manager)
+        @Override
+        public FavouritesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.itemlist_stall, parent, false); // create a new view
+            ViewHolder vh = new ViewHolder(v); // set the view's size, margins, paddings and layout parameters
+            return vh;
+        }
+
+        // Replace the contents of a view (invoked by the layout manager)
+        @Override
+        public void onBindViewHolder(ViewHolder holder, int position) {
+            // - get element from your dataset at this position
+            // - replace the contents of the view with that element
+
+//            holder.recipient.setText(dataSet.get(position).getReceiverName());
+//            holder.address.setText(dataSet.get(position).getEndAddress());
+////            holder.time.setText(dataSet.get(position).getPlanEndTime().toString());
+//            holder.orderNo.setText(String.valueOf(dataSet.get(position).getTaskId()));
+        }
+
+        // Return the size of your dataset (invoked by the layout manager)
+        @Override
+        public int getItemCount() {
+            return dataSet.size();
+        }
+
         // Provide a reference to the views for each data item
         // Complex data items may need more than one view per item, and
         // you provide access to all the views for a data item in a view holder
@@ -84,34 +110,6 @@ public class SelectStallActivity extends ActionBarActivity {
                     }
                 });
             }
-        }
-
-
-
-        // Create new views (invoked by the layout manager)
-        @Override
-        public FavouritesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.itemlist_stall, parent, false); // create a new view
-            ViewHolder vh = new ViewHolder(v); // set the view's size, margins, paddings and layout parameters
-            return vh;
-        }
-
-        // Replace the contents of a view (invoked by the layout manager)
-        @Override
-        public void onBindViewHolder(ViewHolder holder, int position) {
-            // - get element from your dataset at this position
-            // - replace the contents of the view with that element
-
-//            holder.recipient.setText(dataSet.get(position).getReceiverName());
-//            holder.address.setText(dataSet.get(position).getEndAddress());
-////            holder.time.setText(dataSet.get(position).getPlanEndTime().toString());
-//            holder.orderNo.setText(String.valueOf(dataSet.get(position).getTaskId()));
-        }
-
-        // Return the size of your dataset (invoked by the layout manager)
-        @Override
-        public int getItemCount() {
-            return dataSet.size();
         }
 
     }
