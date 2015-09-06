@@ -31,6 +31,7 @@ import com.google.gson.GsonBuilder;
 import arnold.eureka_mobile.Activity.CanteenActivity;
 import arnold.eureka_mobile.Activity.EmployeeProfileActivity;
 import arnold.eureka_mobile.Activity.MapActivity;
+import arnold.eureka_mobile.Activity.PaymentActivity;
 import arnold.eureka_mobile.Activity.ShoppingCart.ShoppingCartActivity;
 import arnold.eureka_mobile.Adapter.HomepageTabsPagerAdapter;
 import arnold.eureka_mobile.R;
@@ -172,12 +173,12 @@ public class HomepageActivity extends AppCompatActivity {
                         case "My Profile":
                             intent = new Intent(context, EmployeeProfileActivity.class);
                             break;
-                        case "Canteen":
-                            intent = new Intent(context, CanteenActivity.class);
+                        case "Payment":
+                            intent  = new Intent(context, PaymentActivity.class);
                             break;
-                        case "Maps":
-                            intent = new Intent(context, MapActivity.class);
-                            break;
+//                        case "Maps":
+//                            intent = new Intent(context, MapActivity.class);
+//                            break;
                         default:
                             Toast.makeText(context, "Sorry. The page could not be started.", Toast.LENGTH_LONG).show();
                             Log.e(TAG, "Default value is run on drawer switch.");
