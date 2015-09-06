@@ -36,9 +36,8 @@ public class SelectHawkerActivity extends ActionBarActivity {
         setContentView(R.layout.recyclerview);
 
         gson = new GsonBuilder().create();
-        ActionBar actionBar = getSupportActionBar();
-        if(actionBar != null){
-            actionBar.setDisplayHomeAsUpEnabled(true);
+        if(getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
         loadRecyclerView();
