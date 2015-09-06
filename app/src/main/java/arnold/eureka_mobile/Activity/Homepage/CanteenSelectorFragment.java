@@ -51,8 +51,8 @@ public class CanteenSelectorFragment extends android.support.v4.app.Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
 
-        ArrayList<Canteen> dataSet = TestCreator.getTestCanteenList(); // TODO: Testing only
-        RecyclerView.Adapter taskListAdapter = new CanteenSelectorAdapter(dataSet);
+        ArrayList<Canteen> list = TestCreator.getTestCanteenList(); // TODO: Testing only
+        RecyclerView.Adapter taskListAdapter = new CanteenSelectorAdapter(list);
         recyclerView.setAdapter(taskListAdapter);
     }
 
@@ -60,8 +60,8 @@ public class CanteenSelectorFragment extends android.support.v4.app.Fragment {
         private ArrayList<Canteen> list;
 
         // constructor
-        public CanteenSelectorAdapter(ArrayList<Canteen> dataSet) {
-            this.list = dataSet;
+        public CanteenSelectorAdapter(ArrayList<Canteen> list) {
+            this.list = list;
         }
 
         // Create new views (invoked by the layout manager)
@@ -105,6 +105,7 @@ public class CanteenSelectorFragment extends android.support.v4.app.Fragment {
 
                         int position = getPosition();
                         Canteen selectedCanteen = list.get(position);
+                        Log.d(TAG, "Here1: " + selectedCanteen);
 
                         Intent intent = new Intent(context, SelectHawkerActivity.class);
                         intent.putExtra("canteen", gson.toJson(selectedCanteen));

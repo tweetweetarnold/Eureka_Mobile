@@ -1,26 +1,24 @@
 package arnold.eureka_mobile.Activity;
 
-import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import arnold.eureka_mobile.R;
 
-public class SelectCanteenActivity extends ActionBarActivity {
+public class ShoppingCartActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_canteen_selector);
+        setContentView(R.layout.activity_shopping_cart);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_canteen_selector, menu);
+        getMenuInflater().inflate(R.menu.menu_shopping_cart, menu);
         return true;
     }
 
@@ -37,10 +35,5 @@ public class SelectCanteenActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public void goToMenu(View view){
-        System.out.println("running gotomenu");
-        startActivity(new Intent(this, SelectFoodActivity.class));
     }
 }

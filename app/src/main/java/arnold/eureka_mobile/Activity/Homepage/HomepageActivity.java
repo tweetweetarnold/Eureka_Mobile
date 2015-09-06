@@ -16,6 +16,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -30,6 +31,7 @@ import com.google.gson.GsonBuilder;
 import arnold.eureka_mobile.Activity.CanteenActivity;
 import arnold.eureka_mobile.Activity.EmployeeProfileActivity;
 import arnold.eureka_mobile.Activity.MapActivity;
+import arnold.eureka_mobile.Activity.ShoppingCartActivity;
 import arnold.eureka_mobile.Adapter.HomepageTabsPagerAdapter;
 import arnold.eureka_mobile.R;
 
@@ -189,6 +191,12 @@ public class HomepageActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_homepage, menu);
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 //        for setting menu icon in action bar in to left hand corner
         switch(item.getItemId()){
@@ -198,9 +206,14 @@ public class HomepageActivity extends AppCompatActivity {
                 }else{
                     drawerLayout.openDrawer(Gravity.LEFT);
                 }
-                return true;
+                break;
+            case R.id.action_shoppingCart:
+                startActivity(new Intent(this, ShoppingCartActivity.class));
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 
     public void processLogout(){

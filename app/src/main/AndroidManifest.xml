@@ -48,14 +48,6 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" >
         </activity>
         <activity
-            android:name=".Activity.FavouritesActivity"
-            android:label="@string/title_activity_favourites"
-            android:parentActivityName=".Activity.Homepage.HomepageActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activity.Homepage.HomepageActivity" />
-        </activity>
-        <activity
             android:name=".Activity.MapActivity"
             android:label="@string/title_activity_maps"
             android:parentActivityName=".Activity.Homepage.HomepageActivity" >
@@ -95,10 +87,6 @@
             android:label="@string/title_activity_sign_up" >
         </activity>
         <activity
-            android:name=".Activity.SelectCanteenActivity"
-            android:label="@string/title_activity_canteen_selector" >
-        </activity>
-        <activity
             android:name=".Activity.SelectFoodActivity"
             android:label="@string/title_activity_food_menu"
             android:parentActivityName=".Activity.SelectCanteenActivity" >
@@ -109,10 +97,14 @@
         <activity
             android:name=".Activity.SelectHawkerActivity"
             android:label="@string/title_activity_stall_selector"
-            android:parentActivityName=".Activity.Homepage.HomepageActivity">
+            android:parentActivityName=".Activity.Homepage.HomepageActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Activity.Homepage.HomepageActivity" />
+        </activity>
+        <activity
+            android:name=".Activity.ShoppingCartActivity"
+            android:label="@string/title_activity_shopping_cart" >
         </activity>
     </application>
 
