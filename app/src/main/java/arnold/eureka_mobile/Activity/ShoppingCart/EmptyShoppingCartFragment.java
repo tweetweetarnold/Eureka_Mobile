@@ -9,9 +9,6 @@ import arnold.eureka_mobile.R;
 
 public class EmptyShoppingCartFragment extends android.support.v4.app.Fragment {
 
-    public EmptyShoppingCartFragment() {
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -1,23 +1,42 @@
-package arnold.eureka_mobile.Activity.Homepage;
+package arnold.eureka_mobile.Activity.ShoppingCart;
 
+import android.app.Fragment;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import java.util.HashSet;
-import java.util.Set;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+
+import arnold.eureka_mobile.Entity.Cart;
 import arnold.eureka_mobile.Entity.Food;
+import arnold.eureka_mobile.Entity.Hawker;
 import arnold.eureka_mobile.R;
 
-public class FavouritesFragment extends android.support.v4.app.Fragment {
+public class ShoppingCartListFragment extends android.support.v4.app.Fragment {
+
+    private static Gson gson;
+    private static SharedPreferences sharedPref;
+    private static SharedPreferences.Editor editor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        gson = new GsonBuilder().create();
+        sharedPref = getActivity().getSharedPreferences(getString(R.string.app_key), Context.MODE_PRIVATE);
+        editor = sharedPref.edit();
     }
 
     @Override
@@ -36,34 +55,28 @@ public class FavouritesFragment extends android.support.v4.app.Fragment {
         // in content do not change the layout size of the RecyclerView
         recyclerView.setHasFixedSize(true);
 
-        // use a linear layout manager
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity()); // use a linear layout manager
         recyclerView.setLayoutManager(layoutManager);
 
-        // specify an adapter (see also next example)
-//        ArrayList<Task> taskList = TestCreator.createTestTasks2();
-//        ArrayList<Task> myDataset = taskList;
-        Set<Food> dataSet = new HashSet<>();
-        dataSet.add(new Food());
-        dataSet.add(new Food());
-        dataSet.add(new Food());
-        RecyclerView.Adapter taskListAdapter = new RecyclerListAdapter(dataSet);
-        recyclerView.setAdapter(taskListAdapter);
+        Cart cart = gson.fromJson(sharedPref.getString("cart", null), Cart.class);
+        ArrayList<Food> list = cart.getCart();
+
+        RecyclerView.Adapter listAdapter = new RecyclerListAdapter(list);
+        recyclerView.setAdapter(listAdapter);
     }
 
     public static class RecyclerListAdapter extends RecyclerView.Adapter<RecyclerListAdapter.ViewHolder> {
-        private Set<Food> dataSet;
-        //        Gson gson = new GsonBuilder().setDateFormat(R.string.date_format).create();
+        private ArrayList<Food> list;
 
         // constructor
-        public RecyclerListAdapter(Set<Food> dataSet) {
-            this.dataSet = dataSet;
+        public RecyclerListAdapter(ArrayList<Food> list) {
+            this.list = list;
         }
 
         // Create new views (invoked by the layout manager)
         @Override
         public RecyclerListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.itemlist_favourites, parent, false); // create a new view
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.itemlist_food, parent, false); // create a new view
             ViewHolder vh = new ViewHolder(v); // set the view's size, margins, paddings and layout parameters
             return vh;
         }
@@ -73,54 +86,38 @@ public class FavouritesFragment extends android.support.v4.app.Fragment {
         public void onBindViewHolder(ViewHolder holder, int position) {
             // - get element from your dataset at this position
             // - replace the contents of the view with that element
-
-//            holder.recipient.setText(dataSet.get(position).getReceiverName());
-//            holder.address.setText(dataSet.get(position).getEndAddress());
-////            holder.time.setText(dataSet.get(position).getPlanEndTime().toString());
-//            holder.orderNo.setText(String.valueOf(dataSet.get(position).getTaskId()));
+            DecimalFormat NUMBER_FORMAT = new DecimalFormat("#.00");
+            holder.foodName.setText(list.get(position).getName());
+            holder.foodPrice.setText("$" + NUMBER_FORMAT.format(list.get(position).getPrice()));
         }
 
         // Return the size of your dataset (invoked by the layout manager)
         @Override
         public int getItemCount() {
-            return dataSet.size();
+            return list.size();
         }
 
         // Provide a reference to the views for each data item
         // Complex data items may need more than one view per item, and
         // you provide access to all the views for a data item in a view holder
         public class ViewHolder extends RecyclerView.ViewHolder {
-//            public View view;
-//            public TextView recipient;
-//            public TextView address;
-//            public TextView time;
-//            public TextView orderNo;
+            TextView foodName;
+            TextView foodPrice;
 
             public ViewHolder(View v) {
                 super(v);
-//                view = v;
-
-//                recipient = (TextView)view.findViewById(R.id.content_receiver);
-//                address = (TextView)view.findViewById(R.id.content_address);
-//                time = (TextView)view.findViewById(R.id.content_time);
-//                orderNo = (TextView)view.findViewById(R.id.content_orderNo);
+                foodName = (TextView) v.findViewById(R.id.foodName);
+                foodPrice = (TextView) v.findViewById(R.id.foodPrice);
 
                 v.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-//                        Context context = v.getContext();
-//                        int position = getPosition();
-//                        Task selectedTask = dataSet.get(position);
-//                        Log.d(TAG, "Position selected: " + position);
-//
-//                        Intent intent = new Intent(context, TaskActivity.class);
-//                        intent.putExtra("task", gson.toJson(selectedTask));
-//                        context.startActivity(intent);
                     }
                 });
             }
         }
 
     }
+
 
 }

@@ -52,21 +52,21 @@ public class CanteenSelectorFragment extends android.support.v4.app.Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
         ArrayList<Canteen> list = TestCreator.getTestCanteenList(); // TODO: Testing only
-        RecyclerView.Adapter listAdapter = new CanteenSelectorAdapter(list);
+        RecyclerView.Adapter listAdapter = new RecyclerListAdapter(list);
         recyclerView.setAdapter(listAdapter);
     }
 
-    public static class CanteenSelectorAdapter extends RecyclerView.Adapter<CanteenSelectorAdapter.ViewHolder> {
+    public static class RecyclerListAdapter extends RecyclerView.Adapter<RecyclerListAdapter.ViewHolder> {
         private ArrayList<Canteen> list;
 
         // constructor
-        public CanteenSelectorAdapter(ArrayList<Canteen> list) {
+        public RecyclerListAdapter(ArrayList<Canteen> list) {
             this.list = list;
         }
 
         // Create new views (invoked by the layout manager)
         @Override
-        public CanteenSelectorAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public RecyclerListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.itemlist_canteen, parent, false); // create a new view
             ViewHolder vh = new ViewHolder(v); // set the view's size, margins, paddings and layout parameters
             return vh;

@@ -47,4 +47,12 @@ public class TestCreator {
         return list;
     }
 
+    public static ArrayList<Food> getTestFavouriteList(){
+        ArrayList<Food> list = new ArrayList<>();
+        list.add(new Food("McSpicy", "Burger", 6.80, null, new Date()));
+        list.add(new Food("McChicken", "Burger", 2.00, null, new Date()));
+        list.add(new Food("Big Mac", "Burger", 7.80, null, new Date()));
+        return list;
+    }
+
 }
