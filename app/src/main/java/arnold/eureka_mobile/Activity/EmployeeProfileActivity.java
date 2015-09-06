@@ -29,13 +29,9 @@ public class EmployeeProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee_profile);
 
-//        initialize
         gson = new GsonBuilder().create();
         sharedPref = getSharedPreferences(getString(R.string.app_key), MODE_PRIVATE);
         editor = sharedPref.edit();
-        network = NetworkSingleton.getInstance(getApplicationContext());
-
-        employee = gson.fromJson(sharedPref.getString("employee", null), Employee.class);
 
         setTextViews(); //set text views
         getJson();
@@ -48,7 +44,6 @@ public class EmployeeProfileActivity extends AppCompatActivity {
         TextView dateJoined = (TextView) findViewById(R.id.content_dateJoined);
         TextView contactNum = (TextView) findViewById(R.id.content_contactNo);
 
-        name.setText(employee.getName());
     }
 
     public void getJson(){
@@ -65,7 +60,7 @@ public class EmployeeProfileActivity extends AppCompatActivity {
                 textView.setText("Error response");
             }
         });
-        network.addToRequestQueue(request);
+//        network.addToRequestQueue(request);
     }
 
 }
