@@ -98,10 +98,6 @@
             android:name=".Activity.ShoppingCart.ShoppingCartActivity"
             android:label="@string/title_activity_shopping_cart" >
         </activity>
-        <activity
-            android:name=".Activity.TestFragActivity"
-            android:label="@string/title_activity_test_frag" >
-        </activity>
     </application>
 
 </manifest>

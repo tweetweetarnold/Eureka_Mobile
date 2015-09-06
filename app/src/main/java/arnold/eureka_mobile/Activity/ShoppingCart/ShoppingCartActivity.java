@@ -35,9 +35,8 @@ public class ShoppingCartActivity extends ActionBarActivity {
         sharedPref = getSharedPreferences(getString(R.string.app_key), MODE_PRIVATE);
         editor = sharedPref.edit();
 
-        // set actionBar to display back button
         if(getSupportActionBar() != null){
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true); // set actionBar to display back button
         }
 
         runFragmentTransition(); // load or refresh fragments
