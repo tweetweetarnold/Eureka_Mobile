@@ -92,11 +92,7 @@
         </activity>
         <activity
             android:name=".Activity.SelectHawkerActivity"
-            android:label="@string/title_activity_select_hawker"
-            android:parentActivityName=".Activity.Homepage.HomepageActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activity.Homepage.HomepageActivity" />
+            android:label="@string/title_activity_select_hawker">
         </activity>
         <activity
             android:name=".Activity.ShoppingCartActivity"

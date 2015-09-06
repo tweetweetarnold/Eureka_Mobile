@@ -1,10 +1,15 @@
 package arnold.eureka_mobile.Activity;
 
-import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -14,8 +19,6 @@ import com.google.gson.GsonBuilder;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
 
 import arnold.eureka_mobile.Entity.Food;
 import arnold.eureka_mobile.Entity.Hawker;
@@ -23,6 +26,7 @@ import arnold.eureka_mobile.R;
 
 public class SelectFoodActivity extends ActionBarActivity {
 
+    private final static String TAG = "SelectFoodAct";
     private Gson gson;
 
     @Override
@@ -30,8 +34,34 @@ public class SelectFoodActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recyclerview);
 
+        ActionBar actionBar = getSupportActionBar();
+        Log.d(TAG, "Actionbar: " + actionBar);
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
         gson = new GsonBuilder().create();
         loadRecyclerView();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_homepage, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()){
+            case android.R.id.home:
+                finish();
+                break;
+            case R.id.action_shoppingCart:
+                startActivity(new Intent(this, ShoppingCartActivity.class));
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        return true;
     }
 
     public void loadRecyclerView(){
