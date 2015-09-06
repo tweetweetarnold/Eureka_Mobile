@@ -1,7 +1,8 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="5sp"
+    android:layout_marginBottom="5dp"
     android:background="@drawable/custom_border1"
     android:orientation="vertical"
     android:padding="5sp">
@@ -12,7 +13,7 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/image_food"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="3"

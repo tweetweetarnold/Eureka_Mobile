@@ -10,13 +10,20 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="10dp">
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/image_food"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="3"
+            android:src="@drawable/rsz_1singapore_chicken_rice" />
 
         <TableLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
             android:layout_weight="9">
 
             <TableRow
@@ -74,7 +81,6 @@
                     android:paddingRight="5sp"
                     android:text="Bikini Bottom"/>
             </TableRow>
-
 
         </TableLayout>
 

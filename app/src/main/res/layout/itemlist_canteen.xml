@@ -2,7 +2,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="5sp"
+    android:layout_marginBottom="5dp"
     android:background="@drawable/custom_border1"
     android:orientation="vertical"
     android:padding="5sp">
@@ -10,26 +10,33 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="10dp">
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/image_canteen"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="3"
+            android:src="@drawable/img_kopitiam" />
 
         <TableLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_weight="9">
+            android:layout_weight="9"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp">
 
             <TableRow
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content">
-                <TextView
-                    android:layout_weight="1"
-                    android:width="0dp"
-                    android:gravity="end"
-                    android:paddingLeft="5sp"
-                    android:paddingRight="5sp"
-                    android:text="Canteen:"
-                    android:textSize="20sp"/>
+                <!--<TextView-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:width="0dp"-->
+                    <!--android:gravity="end"-->
+                    <!--android:paddingLeft="5sp"-->
+                    <!--android:paddingRight="5sp"-->
+                    <!--android:text="Canteen:"-->
+                    <!--android:textSize="17sp"/>-->
                 <TextView
                     android:id="@+id/canteenName"
                     android:layout_weight="2"
@@ -42,13 +49,13 @@
             </TableRow>
 
             <TableRow>
-                <TextView
-                    android:layout_weight="1"
-                    android:width="0dp"
-                    android:gravity="end"
-                    android:paddingLeft="5sp"
-                    android:paddingRight="5sp"
-                    android:text="Address:"/>
+                <!--<TextView-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:width="0dp"-->
+                    <!--android:gravity="end"-->
+                    <!--android:paddingLeft="5sp"-->
+                    <!--android:paddingRight="5sp"-->
+                    <!--android:text="Address:"/>-->
                 <TextView
                     android:id="@+id/canteenAddress"
                     android:layout_weight="2"
