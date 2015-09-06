@@ -5,6 +5,7 @@ import java.util.Date;
 
 import arnold.eureka_mobile.Entity.Canteen;
 import arnold.eureka_mobile.Entity.Employee;
+import arnold.eureka_mobile.Entity.Food;
 import arnold.eureka_mobile.Entity.Hawker;
 
 /**
@@ -26,9 +27,17 @@ public class TestCreator {
 
     public static ArrayList<Hawker> getTestHawkerList(){
         ArrayList<Hawker> list = new ArrayList<>();
-        list.add(new Hawker("hawker1", "123", "Hawker 1", 123, null, new Date(), null, null));
-        list.add(new Hawker("hawker2", "123", "Hawker 2", 123, null, new Date(), null, null));
-        list.add(new Hawker("hawker3", "123", "Hawker 3", 123, null, new Date(), null, null));
+        list.add(new Hawker("hawker1", "123", "Hawker 1", 123, null, new Date(), getTestFoodList(), null));
+        list.add(new Hawker("hawker2", "123", "Hawker 2", 123, null, new Date(), getTestFoodList(), null));
+        list.add(new Hawker("hawker3", "123", "Hawker 3", 123, null, new Date(), getTestFoodList(), null));
+        return list;
+    }
+
+    public static ArrayList<Food> getTestFoodList(){
+        ArrayList<Food> list = new ArrayList<>();
+        list.add(new Food("Chicken Rice", "Rice", 3.00, null, new Date()));
+        list.add(new Food("Wanton Mee", "Noodle", 4.50, null, new Date()));
+        list.add(new Food("Abalone", "Seafood", 6.50, null, new Date()));
         return list;
     }
 

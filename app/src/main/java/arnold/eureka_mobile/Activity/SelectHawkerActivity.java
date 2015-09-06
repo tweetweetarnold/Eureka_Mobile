@@ -95,7 +95,13 @@ public class SelectHawkerActivity extends ActionBarActivity {
                     @Override
                     public void onClick(View v) {
                         Context context = v.getContext();
-                        context.startActivity(new Intent(context, SelectFoodActivity.class));
+
+                        int position = getPosition();
+                        Hawker selectedHawker = list.get(position);
+
+                        Intent intent = new Intent(context, SelectFoodActivity.class);
+                        intent.putExtra("hawker", gson.toJson(selectedHawker));
+                        context.startActivity(intent);
                     }
                 });
             }

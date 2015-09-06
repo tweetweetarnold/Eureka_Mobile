@@ -1,5 +1,6 @@
 package arnold.eureka_mobile.Entity;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Set;
 
@@ -11,14 +12,14 @@ public class Hawker {
 	private long contactNo;
 	private Canteen canteen;
 	private Date createDate;
-	private Set<Food> foodList;
+	private ArrayList<Food> foodList;
 	private Set<OperationDayHours> operatingHours;
 
 	public Hawker(){}
 
 	public Hawker(String username, String password, String name,
 			long contactNo, Canteen canteen, Date createDate,
-			Set<Food> foodList, Set<OperationDayHours> operatingHours) {
+				  ArrayList<Food> foodList, Set<OperationDayHours> operatingHours) {
 		super();
 		this.username = username;
 		this.password = password;
@@ -94,11 +95,11 @@ public class Hawker {
 		this.canteen = canteen;
 	}
 
-	public Set<Food> getFoodList() {
+	public ArrayList<Food> getFoodList() {
 		return foodList;
 	}
 
-	public void setFoodList(Set<Food> foodList) {
+	public void setFoodList(ArrayList<Food> foodList) {
 		this.foodList = foodList;
 	}
 
