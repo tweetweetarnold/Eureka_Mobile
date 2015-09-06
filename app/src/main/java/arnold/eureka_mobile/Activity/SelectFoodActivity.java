@@ -1,6 +1,8 @@
 package arnold.eureka_mobile.Activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
@@ -13,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -20,6 +23,8 @@ import com.google.gson.GsonBuilder;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+import arnold.eureka_mobile.Activity.ShoppingCart.ShoppingCartActivity;
+import arnold.eureka_mobile.Entity.Cart;
 import arnold.eureka_mobile.Entity.Food;
 import arnold.eureka_mobile.Entity.Hawker;
 import arnold.eureka_mobile.R;
@@ -27,19 +32,25 @@ import arnold.eureka_mobile.R;
 public class SelectFoodActivity extends ActionBarActivity {
 
     private final static String TAG = "SelectFoodAct";
-    private Gson gson;
+    private static Gson gson;
+    private static SharedPreferences sharedPref;
+    private static SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recyclerview);
 
+        gson = new GsonBuilder().create();
+        sharedPref = getSharedPreferences(getString(R.string.app_key), MODE_PRIVATE);
+        editor = sharedPref.edit();
+
         ActionBar actionBar = getSupportActionBar();
         Log.d(TAG, "Actionbar: " + actionBar);
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
-        gson = new GsonBuilder().create();
+
         loadRecyclerView();
     }
 
@@ -127,6 +138,18 @@ public class SelectFoodActivity extends ActionBarActivity {
                 v.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        Log.d(TAG, "Food selected");
+                        Context context = v.getContext();
+                        Food selectedFood = list.get(getPosition());
+
+                        Cart cart = gson.fromJson(sharedPref.getString("cart", null), Cart.class);
+                        if(cart == null) {
+                            Log.d(TAG, "New cart created!");
+                            cart = new Cart();
+                        }
+                        cart.addToCart(selectedFood);
+                        editor.putString("cart", gson.toJson(cart)).commit();
+                        Toast.makeText(context, "Item added to Cart!", Toast.LENGTH_SHORT).show();
                     }
                 });
             }

@@ -31,7 +31,7 @@ import com.google.gson.GsonBuilder;
 import arnold.eureka_mobile.Activity.CanteenActivity;
 import arnold.eureka_mobile.Activity.EmployeeProfileActivity;
 import arnold.eureka_mobile.Activity.MapActivity;
-import arnold.eureka_mobile.Activity.ShoppingCartActivity;
+import arnold.eureka_mobile.Activity.ShoppingCart.ShoppingCartActivity;
 import arnold.eureka_mobile.Adapter.HomepageTabsPagerAdapter;
 import arnold.eureka_mobile.R;
 

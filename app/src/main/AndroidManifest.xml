@@ -95,7 +95,7 @@
             android:label="@string/title_activity_select_hawker" >
         </activity>
         <activity
-            android:name=".Activity.ShoppingCartActivity"
+            android:name=".Activity.ShoppingCart.ShoppingCartActivity"
             android:label="@string/title_activity_shopping_cart" >
         </activity>
         <activity

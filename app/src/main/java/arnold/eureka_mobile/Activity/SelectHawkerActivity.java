@@ -2,14 +2,12 @@ package arnold.eureka_mobile.Activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +18,7 @@ import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 
+import arnold.eureka_mobile.Activity.ShoppingCart.ShoppingCartActivity;
 import arnold.eureka_mobile.Entity.Canteen;
 import arnold.eureka_mobile.Entity.Hawker;
 import arnold.eureka_mobile.R;
