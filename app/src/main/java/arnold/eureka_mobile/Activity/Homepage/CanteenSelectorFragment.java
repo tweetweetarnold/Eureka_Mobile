@@ -52,8 +52,8 @@ public class CanteenSelectorFragment extends android.support.v4.app.Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
         ArrayList<Canteen> list = TestCreator.getTestCanteenList(); // TODO: Testing only
-        RecyclerView.Adapter taskListAdapter = new CanteenSelectorAdapter(list);
-        recyclerView.setAdapter(taskListAdapter);
+        RecyclerView.Adapter listAdapter = new CanteenSelectorAdapter(list);
+        recyclerView.setAdapter(listAdapter);
     }
 
     public static class CanteenSelectorAdapter extends RecyclerView.Adapter<CanteenSelectorAdapter.ViewHolder> {
@@ -110,7 +110,7 @@ public class CanteenSelectorFragment extends android.support.v4.app.Fragment {
                         Intent intent = new Intent(context, SelectHawkerActivity.class);
                         intent.putExtra("canteen", gson.toJson(selectedCanteen));
                         Log.i(TAG, "Starting SelectHawkerActivity");
-                        context.startActivity(new Intent(context, SelectHawkerActivity.class));
+                        context.startActivity(intent);
                     }
                 });
             }

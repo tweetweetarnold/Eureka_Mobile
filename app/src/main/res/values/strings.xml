@@ -19,18 +19,13 @@
     <string name="title_activity_homepage">Homepage</string>
     <string name="title_activity_canteen">Canteen Details</string>
     <string name="title_activity_profile">My Profile</string>
-    <string name="title_activity_favourites">FavouritesActivity</string>
 
-<!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="title_activity_payment">PaymentActivity</string>
-    <string name="title_activity_food_list_fragment">FoodListFragment</string>
     <string name="title_activity_driver_main">DriverMainActivity</string>
     <string name="title_activity_hawker_main">HawkerMainActivity</string>
-    <string name="title_activity_signup">SignupActivity</string>
     <string name="title_activity_sign_up">SignUpActivity</string>
-    <string name="title_activity_home_page2">HomePage2Activity</string>
 
     <string-array name="drawerList">
         <item>My Profile</item>
@@ -48,9 +43,9 @@
         <item>Canteen</item>
         <item>Favourites</item>
     </string-array>
-    <string name="title_activity_homepage2">Homepage2Activity</string>
-    <string name="title_activity_canteen_selector">CanteenSelectorActivity</string>
-    <string name="title_activity_food_menu">FoodMenuActivity</string>
-    <string name="title_activity_stall_selector">StallSelectorActivity</string>
-    <string name="title_activity_shopping_cart">ShoppingCartActivity</string>
+
+    <string name="title_activity_select_canteen">Select Canteen</string>
+    <string name="title_activity_select_food">Select Food</string>
+    <string name="title_activity_select_hawker">Select Stall</string>
+    <string name="title_activity_shopping_cart">Shopping Cart</string>
 </resources>

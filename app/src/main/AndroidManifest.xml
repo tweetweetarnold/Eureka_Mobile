@@ -88,15 +88,11 @@
         </activity>
         <activity
             android:name=".Activity.SelectFoodActivity"
-            android:label="@string/title_activity_food_menu"
-            android:parentActivityName=".Activity.SelectCanteenActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activity.SelectCanteenActivity" />
+            android:label="@string/title_activity_select_food">
         </activity>
         <activity
             android:name=".Activity.SelectHawkerActivity"
-            android:label="@string/title_activity_stall_selector"
+            android:label="@string/title_activity_select_hawker"
             android:parentActivityName=".Activity.Homepage.HomepageActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
