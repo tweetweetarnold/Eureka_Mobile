@@ -100,7 +100,7 @@
         android:layout_height="60dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="25dp"
-        android:background="#16c0b2"
+        android:background="@color/teal_button"
         android:onClick="onLoginButtonClick"
         android:text="@string/button_login"
         android:textColor="@color/white"
@@ -108,28 +108,19 @@
         android:typeface="sans"
         android:visibility="visible" />
 
+    <!--Forgot password button-->
     <Button
-        android:id="@+id/login_button"
+        android:id="@+id/button_forgot_password"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="5dp"
-        android:background="#16c0b2"
+        android:background="@color/teal_button"
         android:onClick="onLoginButtonClick"
         android:text="Forgot password?"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:typeface="sans"
         android:visibility="visible" />
-
-    <!-- Forgot password text -->
-    <TextView
-        android:id="@+id/button_forgot_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:text="@string/forgot_password"
-        android:textStyle="italic|bold"/>
 
 </LinearLayout>

@@ -11,6 +11,9 @@
     <color name="list_border">#ffa8a8a4</color>
     <color name="grey">#B0B0B0</color>
 
+    <color name="background">#595959</color>
+    <color name="teal_button">#16c0b2</color>
+
     <color name="drawer_bg">@color/grey</color>
     <color name="drawer_item_bg">@color/lighter_purple</color>
 

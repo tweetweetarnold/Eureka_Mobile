@@ -18,6 +18,7 @@
     <string name="button_signup">Signup</string>
     <string name="forgot_password"><u>FORGOT YOUR PASSWORD?</u></string>
     <string name="welcome">Welcome to the Lunch Order App</string>
+    <string name="slogan">TAKE A BREAK, LUNCH MATTERS!</string>
 
     <string name="title_activity_homepage">Homepage</string>
     <string name="title_activity_canteen">Canteen Details</string>
