@@ -77,8 +77,8 @@ public class CanteenSelectorFragment extends android.support.v4.app.Fragment {
         public void onBindViewHolder(ViewHolder holder, int position) {
             // - get element from your dataset at this position
             // - replace the contents of the view with that element
-            holder.canteenName.setText(list.get(position).getName());
-            holder.canteenAddress.setText(list.get(position).getAddress());
+//            holder.canteenName.setText(list.get(position).getName());
+//            holder.canteenAddress.setText(list.get(position).getAddress());
         }
 
         @Override
@@ -89,14 +89,14 @@ public class CanteenSelectorFragment extends android.support.v4.app.Fragment {
         // Complex data items may need more than one view per item, and
         // you provide access to all the views for a data item in a view holder
         public class ViewHolder extends RecyclerView.ViewHolder {
-            private TextView canteenName;
-            private TextView canteenAddress;
+//            private TextView canteenName;
+//            private TextView canteenAddress;
 
 
             public ViewHolder(View v) {
                 super(v);
-                canteenName = (TextView) v.findViewById(R.id.canteenName);
-                canteenAddress = (TextView) v.findViewById(R.id.canteenAddress);
+//                canteenName = (TextView) v.findViewById(R.id.canteenName);
+//                canteenAddress = (TextView) v.findViewById(R.id.canteenAddress);
 
                 v.setOnClickListener(new View.OnClickListener() {
                     @Override

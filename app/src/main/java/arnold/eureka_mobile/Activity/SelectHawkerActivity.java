@@ -99,7 +99,7 @@ public class SelectHawkerActivity extends ActionBarActivity {
         public void onBindViewHolder(ViewHolder holder, int position) {
             // - get element from your dataset at this position
             // - replace the contents of the view with that element
-            holder.hawkerName.setText(list.get(position).getName());
+//            holder.hawkerName.setText(list.get(position).getName());
         }
 
         // Return the size of your dataset (invoked by the layout manager)
@@ -116,7 +116,7 @@ public class SelectHawkerActivity extends ActionBarActivity {
 
             public ViewHolder(View v) {
                 super(v);
-                hawkerName = (TextView) v.findViewById(R.id.hawkerName);
+//                hawkerName = (TextView) v.findViewById(R.id.hawkerName);
 
                 v.setOnClickListener(new View.OnClickListener() {
                     @Override

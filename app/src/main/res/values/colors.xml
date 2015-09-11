@@ -14,5 +14,8 @@
     <color name="drawer_bg">@color/grey</color>
     <color name="drawer_item_bg">@color/lighter_purple</color>
 
+    <color name="canteen_open">#95c0da</color>
+    <color name="canteen_closed">#1f1f1f</color>
+
 
 </resources>

@@ -2,16 +2,20 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:background="@drawable/img_smu_bg"
+    android:backgroundTint="#77c9cece"
+    android:backgroundTintMode="src_over"
+    android:orientation="vertical"
+    android:weightSum="1">
 
     <!-- TeamLogo -->
-    <ImageView
-    android:id="@+id/login_teamLogo"
-    android:layout_width="100dp"
-    android:layout_height="100dp"
-    android:layout_gravity="center_horizontal"
-    android:layout_marginTop="20dp"
-    android:background="@drawable/img_team_logo"/>
+    <!--<ImageView-->
+    <!--android:id="@+id/login_teamLogo"-->
+    <!--android:layout_width="100dp"-->
+    <!--android:layout_height="100dp"-->
+    <!--android:layout_gravity="center_horizontal"-->
+    <!--android:layout_marginTop="20dp"-->
+    <!--android:background="@drawable/img_team_logo" />-->
 
     <!--<Space-->
         <!--android:layout_width="match_parent"-->
@@ -63,10 +67,15 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
+        android:autoText="false"
+        android:background="#78ffffff"
+        android:backgroundTintMode="src_in"
         android:gravity="center"
         android:hint="@string/hint_username"
         android:inputType="text"
-        android:maxWidth="300dp" />
+        android:maxWidth="300dp"
+        android:padding="10dp"
+        android:singleLine="true" />
 
     <!-- Password -->
     <EditText
@@ -75,19 +84,23 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
+        android:autoText="false"
+        android:background="#78ffffff"
         android:gravity="center"
         android:hint="@string/hint_password"
         android:inputType="textPassword"
-        android:maxWidth="300dp" />
+        android:maxWidth="300dp"
+        android:padding="10dp"
+        android:singleLine="true" />
 
     <!--Login button-->
     <Button
-        android:id="@+id/login_button"
+        android:id="@+id/button_login"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="15dp"
-        android:background="@color/blue_login"
+        android:layout_marginTop="25dp"
+        android:background="#16c0b2"
         android:onClick="onLoginButtonClick"
         android:text="@string/button_login"
         android:textColor="@color/white"
@@ -95,24 +108,28 @@
         android:typeface="sans"
         android:visibility="visible" />
 
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:background="#16c0b2"
+        android:onClick="onLoginButtonClick"
+        android:text="Forgot password?"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:typeface="sans"
+        android:visibility="visible" />
+
     <!-- Forgot password text -->
     <TextView
-        android:id="@+id/text_forgot_password"
+        android:id="@+id/button_forgot_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:text="@string/forgot_password"
         android:textStyle="italic|bold"/>
-
-    <!--facebook button-->
-    <!--<com.facebook.login.widget.LoginButton-->
-    <!--android:id="@+id/facebook_login_button"-->
-    <!--android:layout_width="300dp"-->
-    <!--android:layout_height="70dp"-->
-    <!--android:textSize="25sp"-->
-    <!--android:layout_gravity="center_horizontal"-->
-    <!--android:layout_marginTop="30dp"-->
-    <!--android:layout_marginBottom="30dp" />-->
 
 </LinearLayout>
