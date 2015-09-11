@@ -40,7 +40,7 @@
                     android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/foodName"
+                    android:id="@+id/food_name"
                     android:layout_weight="2"
                     android:width="0dp"
                     android:paddingLeft="5sp"
@@ -62,7 +62,7 @@
                     android:text="Price:" />
 
                 <TextView
-                    android:id="@+id/foodPrice"
+                    android:id="@+id/food_price"
                     android:layout_weight="2"
                     android:width="0dp"
                     android:paddingLeft="5sp"

@@ -69,6 +69,7 @@ public class HomepageActivity extends AppCompatActivity {
             actionBar = getSupportActionBar();
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_white_18dp);
+            actionBar.setTitle("MENU");
 //            actionBar.setDisplayOptions(ActionBar.);
 
             // START: order is important here

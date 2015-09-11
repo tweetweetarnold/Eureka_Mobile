@@ -132,8 +132,8 @@ public class SelectFoodActivity extends ActionBarActivity {
 
             public ViewHolder(View v) {
                 super(v);
-                foodName = (TextView) v.findViewById(R.id.foodName);
-                foodPrice = (TextView) v.findViewById(R.id.foodPrice);
+                foodName = (TextView) v.findViewById(R.id.food_name);
+                foodPrice = (TextView) v.findViewById(R.id.food_price);
 
                 v.setOnClickListener(new View.OnClickListener() {
                     @Override

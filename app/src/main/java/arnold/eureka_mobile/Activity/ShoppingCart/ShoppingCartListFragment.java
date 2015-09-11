@@ -43,7 +43,7 @@ public class ShoppingCartListFragment extends android.support.v4.app.Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.recyclerview, container, false);
+        View view = inflater.inflate(R.layout.fragment_shopping_cart_filled, container, false);
         loadRecyclerView(view);
         return view;
     }
@@ -76,7 +76,7 @@ public class ShoppingCartListFragment extends android.support.v4.app.Fragment {
         // Create new views (invoked by the layout manager)
         @Override
         public RecyclerListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.itemlist_food, parent, false); // create a new view
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.itemlist_shopping_cart, parent, false); // create a new view
             ViewHolder vh = new ViewHolder(v); // set the view's size, margins, paddings and layout parameters
             return vh;
         }
@@ -106,8 +106,8 @@ public class ShoppingCartListFragment extends android.support.v4.app.Fragment {
 
             public ViewHolder(View v) {
                 super(v);
-                foodName = (TextView) v.findViewById(R.id.foodName);
-                foodPrice = (TextView) v.findViewById(R.id.foodPrice);
+                foodName = (TextView) v.findViewById(R.id.food_name);
+                foodPrice = (TextView) v.findViewById(R.id.food_price);
 
                 v.setOnClickListener(new View.OnClickListener() {
                     @Override
