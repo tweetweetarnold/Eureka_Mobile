@@ -3,6 +3,7 @@ package arnold.eureka_mobile.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
@@ -39,7 +40,7 @@ public class SelectFoodActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.recyclerview);
+        setContentView(R.layout.fragment_select_food);
 
         gson = new GsonBuilder().create();
         sharedPref = getSharedPreferences(getString(R.string.app_key), MODE_PRIVATE);
@@ -52,6 +53,14 @@ public class SelectFoodActivity extends ActionBarActivity {
         }
 
         loadRecyclerView();
+        setFont();
+    }
+
+    public void setFont(){
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "RobotoCondensed-Regular.ttf");
+
+        TextView title = (TextView) findViewById(R.id.title);
+        title.setTypeface(typeface);
     }
 
     @Override
@@ -112,9 +121,9 @@ public class SelectFoodActivity extends ActionBarActivity {
         public void onBindViewHolder(ViewHolder holder, int position) {
             // - get element from your dataset at this position
             // - replace the contents of the view with that element
-            DecimalFormat NUMBER_FORMAT = new DecimalFormat("#.00");
+//            DecimalFormat NUMBER_FORMAT = new DecimalFormat("#.00");
             holder.foodName.setText(list.get(position).getName());
-            holder.foodPrice.setText("$" + NUMBER_FORMAT.format(list.get(position).getPrice()));
+//            holder.foodPrice.setText("$" + NUMBER_FORMAT.format(list.get(position).getPrice()));
         }
 
         // Return the size of your dataset (invoked by the layout manager)
@@ -128,12 +137,12 @@ public class SelectFoodActivity extends ActionBarActivity {
         // you provide access to all the views for a data item in a view holder
         public class ViewHolder extends RecyclerView.ViewHolder {
             TextView foodName;
-            TextView foodPrice;
 
             public ViewHolder(View v) {
                 super(v);
+                Typeface typeface = Typeface.createFromAsset(v.getContext().getAssets(), "RobotoCondensed-Regular.ttf");
                 foodName = (TextView) v.findViewById(R.id.food_name);
-                foodPrice = (TextView) v.findViewById(R.id.food_price);
+                foodName.setTypeface(typeface);
 
                 v.setOnClickListener(new View.OnClickListener() {
                     @Override

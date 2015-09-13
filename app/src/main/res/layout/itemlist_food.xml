@@ -7,79 +7,14 @@
     android:orientation="vertical"
     android:padding="5sp">
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/food_name"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/image_food"
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="3"
-            android:src="@drawable/rsz_1singapore_chicken_rice" />
-
-        <TableLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_weight="9">
-
-            <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_weight="1"
-                    android:width="0dp"
-                    android:gravity="end"
-                    android:paddingLeft="5sp"
-                    android:paddingRight="5sp"
-                    android:text="Food:"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/food_name"
-                    android:layout_weight="2"
-                    android:width="0dp"
-                    android:paddingLeft="5sp"
-                    android:paddingRight="5sp"
-                    android:text="Xiao Long Bao"
-                    android:textColor="@color/black"
-                    android:textSize="20sp" />
-
-            </TableRow>
-
-            <TableRow>
-
-                <TextView
-                    android:layout_weight="1"
-                    android:width="0dp"
-                    android:gravity="end"
-                    android:paddingLeft="5sp"
-                    android:paddingRight="5sp"
-                    android:text="Price:" />
-
-                <TextView
-                    android:id="@+id/food_price"
-                    android:layout_weight="2"
-                    android:width="0dp"
-                    android:paddingLeft="5sp"
-                    android:paddingRight="5sp"
-                    android:text="$20.00" />
-            </TableRow>
-
-        </TableLayout>
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="50sp"
-            android:layout_gravity="center"
-            android:layout_marginEnd="30dp"
-            android:layout_marginRight="20dp"
-            android:layout_weight="1"
-            android:src="@drawable/img_chevron_right" />
-    </LinearLayout>
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="FISHBALL NOODLES (SOUP)"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
 
 </LinearLayout>
