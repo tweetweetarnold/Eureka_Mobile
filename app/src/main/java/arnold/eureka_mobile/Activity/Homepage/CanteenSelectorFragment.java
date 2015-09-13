@@ -2,6 +2,7 @@ package arnold.eureka_mobile.Activity.Homepage;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -85,18 +86,22 @@ public class CanteenSelectorFragment extends android.support.v4.app.Fragment {
         public int getItemCount() {
             return list.size();
         }
-// Provide a reference to the views for each data item
+        // Provide a reference to the views for each data item
         // Complex data items may need more than one view per item, and
         // you provide access to all the views for a data item in a view holder
         public class ViewHolder extends RecyclerView.ViewHolder {
-//            private TextView canteenName;
-//            private TextView canteenAddress;
-
 
             public ViewHolder(View v) {
                 super(v);
-//                canteenName = (TextView) v.findViewById(R.id.canteenName);
-//                canteenAddress = (TextView) v.findViewById(R.id.canteenAddress);
+                Typeface typeface = Typeface.createFromAsset(v.getContext().getAssets(), "RobotoCondensed-Regular.ttf");
+
+                TextView title = (TextView) v.findViewById(R.id.canteen_title);
+                TextView address = (TextView) v.findViewById(R.id.canteen_address);
+                TextView days = (TextView) v.findViewById(R.id.canteen_days);
+
+                title.setTypeface(typeface);
+                address.setTypeface(typeface);
+                days.setTypeface(typeface);
 
                 v.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -105,7 +110,6 @@ public class CanteenSelectorFragment extends android.support.v4.app.Fragment {
 
                         int position = getPosition();
                         Canteen selectedCanteen = list.get(position);
-                        Log.d(TAG, "Here1: " + selectedCanteen);
 
                         Intent intent = new Intent(context, SelectHawkerActivity.class);
                         intent.putExtra("canteen", gson.toJson(selectedCanteen));

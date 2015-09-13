@@ -1,27 +1,23 @@
 package arnold.eureka_mobile.Activity.ShoppingCart;
 
-import android.app.Fragment;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import arnold.eureka_mobile.Entity.Cart;
 import arnold.eureka_mobile.Entity.Food;
-import arnold.eureka_mobile.Entity.Hawker;
 import arnold.eureka_mobile.R;
 
 public class ShoppingCartListFragment extends android.support.v4.app.Fragment {
@@ -44,8 +40,24 @@ public class ShoppingCartListFragment extends android.support.v4.app.Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_shopping_cart_filled, container, false);
+
+        setFont(view);
         loadRecyclerView(view);
         return view;
+    }
+
+    public void setFont(View view){
+        Typeface typeface = Typeface.createFromAsset(view.getContext().getAssets(), "Ubuntu-Regular.ttf");
+
+        TextView slogan = (TextView) view.findViewById(R.id.slogan);
+        TextView orderTitle = (TextView) view.findViewById(R.id.order_title);
+        TextView total = (TextView) view.findViewById(R.id.order_total);
+        TextView totalAmount = (TextView) view.findViewById(R.id.order_total_amount);
+
+        slogan.setTypeface(typeface);
+        orderTitle.setTypeface(typeface);
+        total.setTypeface(typeface);
+        totalAmount.setTypeface(typeface);
     }
 
     public void loadRecyclerView(View view){
@@ -86,9 +98,9 @@ public class ShoppingCartListFragment extends android.support.v4.app.Fragment {
         public void onBindViewHolder(ViewHolder holder, int position) {
             // - get element from your dataset at this position
             // - replace the contents of the view with that element
-            DecimalFormat NUMBER_FORMAT = new DecimalFormat("#.00");
-            holder.foodName.setText(list.get(position).getName());
-            holder.foodPrice.setText("$" + NUMBER_FORMAT.format(list.get(position).getPrice()));
+//            DecimalFormat NUMBER_FORMAT = new DecimalFormat("#.00");
+//            holder.foodName.setText(list.get(position).getName());
+//            holder.foodPrice.setText("$" + NUMBER_FORMAT.format(list.get(position).getPrice()));
         }
 
         // Return the size of your dataset (invoked by the layout manager)
@@ -101,13 +113,9 @@ public class ShoppingCartListFragment extends android.support.v4.app.Fragment {
         // Complex data items may need more than one view per item, and
         // you provide access to all the views for a data item in a view holder
         public class ViewHolder extends RecyclerView.ViewHolder {
-            TextView foodName;
-            TextView foodPrice;
 
             public ViewHolder(View v) {
                 super(v);
-                foodName = (TextView) v.findViewById(R.id.food_name);
-                foodPrice = (TextView) v.findViewById(R.id.food_price);
 
                 v.setOnClickListener(new View.OnClickListener() {
                     @Override

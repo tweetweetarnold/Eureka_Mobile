@@ -2,6 +2,7 @@ package arnold.eureka_mobile.Activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -112,11 +113,13 @@ public class SelectHawkerActivity extends ActionBarActivity {
         // Complex data items may need more than one view per item, and
         // you provide access to all the views for a data item in a view holder
         public class ViewHolder extends RecyclerView.ViewHolder {
-            TextView hawkerName;
 
             public ViewHolder(View v) {
                 super(v);
-//                hawkerName = (TextView) v.findViewById(R.id.hawkerName);
+                Typeface typeface = Typeface.createFromAsset(v.getContext().getAssets(), "RobotoCondensed-Regular.ttf");
+
+                TextView hawkerName = (TextView) v.findViewById(R.id.hawker_name);
+                hawkerName.setTypeface(typeface);
 
                 v.setOnClickListener(new View.OnClickListener() {
                     @Override

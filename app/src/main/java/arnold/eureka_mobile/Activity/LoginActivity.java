@@ -5,8 +5,11 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.facebook.AccessToken;
@@ -45,8 +48,23 @@ public class LoginActivity extends Activity {
         editor = sharedPref.edit();
         network = NetworkSingleton.getInstance(this);
 
+        setFont();
+
 //        loadFacebookSDK();
 
+    }
+
+    public void setFont(){
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "JosefinSans-Regular.ttf");
+
+        Button loginButton = (Button) findViewById(R.id.button_login);
+        Button forgotButton = (Button) findViewById(R.id.button_forgot_password);
+        EditText inputUsername = (EditText) findViewById(R.id.login_username);
+        EditText inputPassword = (EditText) findViewById(R.id.login_password);
+        loginButton.setTypeface(typeface);
+        forgotButton.setTypeface(typeface);
+        inputUsername.setTypeface(typeface);
+        inputPassword.setTypeface(typeface);
     }
 
 //    public void loadFacebookSDK(){

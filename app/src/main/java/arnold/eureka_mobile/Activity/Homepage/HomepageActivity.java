@@ -28,7 +28,6 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import arnold.eureka_mobile.Activity.CanteenActivity;
 import arnold.eureka_mobile.Activity.EmployeeProfileActivity;
 import arnold.eureka_mobile.Activity.MapActivity;
 import arnold.eureka_mobile.Activity.PaymentActivity;
