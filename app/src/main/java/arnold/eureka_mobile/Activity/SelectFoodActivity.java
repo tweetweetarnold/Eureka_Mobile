@@ -21,7 +21,6 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import arnold.eureka_mobile.Activity.ShoppingCart.ShoppingCartActivity;
@@ -40,7 +39,7 @@ public class SelectFoodActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_select_food);
+        setContentView(R.layout.activity_select_food);
 
         gson = new GsonBuilder().create();
         sharedPref = getSharedPreferences(getString(R.string.app_key), MODE_PRIVATE);

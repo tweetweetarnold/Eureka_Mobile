@@ -99,7 +99,7 @@ public class ShoppingCartListFragment extends android.support.v4.app.Fragment {
             // - get element from your dataset at this position
             // - replace the contents of the view with that element
 //            DecimalFormat NUMBER_FORMAT = new DecimalFormat("#.00");
-//            holder.foodName.setText(list.get(position).getName());
+            holder.foodName.setText(list.get(position).getName());
 //            holder.foodPrice.setText("$" + NUMBER_FORMAT.format(list.get(position).getPrice()));
         }
 
@@ -113,9 +113,11 @@ public class ShoppingCartListFragment extends android.support.v4.app.Fragment {
         // Complex data items may need more than one view per item, and
         // you provide access to all the views for a data item in a view holder
         public class ViewHolder extends RecyclerView.ViewHolder {
+            TextView foodName;
 
             public ViewHolder(View v) {
                 super(v);
+                foodName = (TextView) v.findViewById(R.id.food_name);
 
                 v.setOnClickListener(new View.OnClickListener() {
                     @Override
