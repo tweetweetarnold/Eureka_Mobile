@@ -10,24 +10,26 @@
         android:allowBackup="true"
         android:icon="@drawable/img_team_logo"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".Activity.LoginActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".Activity.Homepage.HomepageActivity"
-            android:label="@string/title_activity_homepage" >
+            android:label="@string/title_activity_homepage"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".Activity.CanteenActivity"
             android:label="@string/title_activity_canteen"
-            android:parentActivityName=".Activity.Homepage.HomepageActivity" >
+            android:parentActivityName=".Activity.Homepage.HomepageActivity"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Activity.Homepage.HomepageActivity" />
@@ -35,7 +37,8 @@
         <activity
             android:name=".Activity.EmployeeProfileActivity"
             android:label="@string/title_activity_profile"
-            android:parentActivityName=".Activity.Homepage.HomepageActivity" >
+            android:parentActivityName=".Activity.Homepage.HomepageActivity"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Activity.Homepage.HomepageActivity" />
@@ -58,7 +61,8 @@
         <activity
             android:name=".Activity.PaymentActivity"
             android:label="@string/title_activity_payment"
-            android:parentActivityName=".Activity.Homepage.HomepageActivity" >
+            android:parentActivityName=".Activity.Homepage.HomepageActivity"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Activity.Homepage.HomepageActivity" />
@@ -80,23 +84,28 @@
         </activity>
         <activity
             android:name=".Activity.OtherUsers.HawkerMainActivity"
-            android:label="@string/title_activity_hawker_main" >
+            android:label="@string/title_activity_hawker_main"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".Activity.SignUpActivity"
-            android:label="@string/title_activity_sign_up" >
+            android:label="@string/title_activity_sign_up"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".Activity.SelectFoodActivity"
-            android:label="@string/title_activity_select_food" >
+            android:label="@string/title_activity_select_food"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".Activity.SelectHawkerActivity"
-            android:label="@string/title_activity_select_hawker" >
+            android:label="@string/title_activity_select_hawker"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".Activity.ShoppingCart.ShoppingCartActivity"
-            android:label="@string/title_activity_shopping_cart" >
+            android:label="@string/title_activity_shopping_cart"
+            android:screenOrientation="portrait" >
         </activity>
     </application>
 
