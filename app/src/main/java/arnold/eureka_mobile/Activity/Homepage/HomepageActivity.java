@@ -15,6 +15,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,6 +26,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.astuetz.PagerSlidingTabStrip;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -51,6 +53,7 @@ public class HomepageActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d(TAG, "OnCreate homepage");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
 
@@ -74,7 +77,7 @@ public class HomepageActivity extends AppCompatActivity {
             // START: order is important here
             loadSwipeView(); //load swipe view
             loadActionBarTabs(); //load Action bar tabs
-            loadDrawer(); //load Drawer
+//            loadDrawer(); //load Drawer
             // END: order is important here
 
             viewPager.setCurrentItem(1); // load the tab position
@@ -131,66 +134,103 @@ public class HomepageActivity extends AppCompatActivity {
 
             }
         };
-//         Add 3 tabs, specifying the tab's text and TabListener
 
         for (int i = 0; i < tabList.length; i++) {
             actionBar.addTab(actionBar.newTab().setText(tabList[i]).setTabListener(tabListener));
         }
+
+
+        // TODO: Testing
+//        PagerSlidingTabStrip tabStrip = (PagerSlidingTabStrip) findViewById(R.id.tabs);
+//        Log.d(TAG, "creating tab strip");
+//        Log.d(TAG, "viewpager: " + viewPager.toString());
+//        Log.d(TAG, "tabStrip: " + tabStrip.toString());
+//
+//        tabStrip.setViewPager(viewPager);
+//
+//
+//        Log.d(TAG, "viewpager set");
+//        tabStrip.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+//            @Override
+//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//            }
+//
+//            @Override
+//            public void onPageSelected(int position) {
+//                viewPager.setCurrentItem(position);
+//            }
+//
+//            @Override
+//            public void onPageScrollStateChanged(int state) {
+//            }
+//        });
+//        Log.d(TAG, "tabstrip setpagelistener");
+//
+//        Log.d(TAG, "Action bar tabs complete.");
+
+        // TODO: Testing
     }
 
     //    load resources to enable swipe navigation
     public void loadSwipeView(){
         viewPager = (ViewPager) findViewById(R.id.homepage_pager);
-        viewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
+
             @Override
             public void onPageSelected(int position) {
                 actionBar.setSelectedNavigationItem(position);
             }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {}
         });
+
         HomepageTabsPagerAdapter homepageTabsPagerAdapter = new HomepageTabsPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(homepageTabsPagerAdapter);
+        Log.d(TAG, "Swipe view complete");
     }
 
     //    load resources to enable side drawer
-    public void loadDrawer(){
-        final ArrayAdapter<String> drawerAdapter = new ArrayAdapter<>(this, R.layout.drawer_item, drawerList);
-
-//        drawer = (LinearLayout) findViewById(R.id.drawer);
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        SimpleAdapter simpleAdapter = new SimpleAdapter(this, drawerList, drawerLayout, );
-
-        ListView listView = (ListView) findViewById(R.id.drawer_list);
-        listView.setAdapter(drawerAdapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String itemTitle = drawerAdapter.getItem(position);
-                Context context = getApplicationContext();
-                Intent intent = null;
-                if (itemTitle.equals("Logout")) {
-                    processLogout();
-                } else {
-                    switch (itemTitle) {
-                        case "My Profile":
-                            intent = new Intent(context, EmployeeProfileActivity.class);
-                            break;
-                        case "Payment":
-                            intent  = new Intent(context, PaymentActivity.class);
-                            break;
-//                        case "Maps":
-//                            intent = new Intent(context, MapActivity.class);
+//    public void loadDrawer(){
+//        final ArrayAdapter<String> drawerAdapter = new ArrayAdapter<>(this, R.layout.drawer_item, drawerList);
+//
+//        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+////        SimpleAdapter simpleAdapter = new SimpleAdapter(this, drawerList, drawerLayout, );
+//
+//        ListView listView = (ListView) findViewById(R.id.drawer_list);
+//        listView.setAdapter(drawerAdapter);
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                String itemTitle = drawerAdapter.getItem(position);
+//                Context context = getApplicationContext();
+//                Intent intent = null;
+//                if (itemTitle.equals("Logout")) {
+//                    processLogout();
+//                } else {
+//                    switch (itemTitle) {
+//                        case "My Profile":
+//                            intent = new Intent(context, EmployeeProfileActivity.class);
 //                            break;
-                        default:
-                            Toast.makeText(context, "Sorry. The page could not be started.", Toast.LENGTH_LONG).show();
-                            Log.e(TAG, "Default value is run on drawer switch.");
-                            break;
-                    }
-                    startActivity(intent);
-                    drawerLayout.closeDrawers();
-                }
-            }
-        });
-    }
+//                        case "Payment":
+//                            intent  = new Intent(context, PaymentActivity.class);
+//                            break;
+////                        case "Maps":
+////                            intent = new Intent(context, MapActivity.class);
+////                            break;
+//                        default:
+//                            Toast.makeText(context, "Sorry. The page could not be started.", Toast.LENGTH_LONG).show();
+//                            Log.e(TAG, "Default value is run on drawer switch.");
+//                            break;
+//                    }
+//                    startActivity(intent);
+//                    drawerLayout.closeDrawers();
+//                }
+//            }
+//        });
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
