@@ -4,7 +4,6 @@ import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Set;
 
 
 public class Canteen {
@@ -13,16 +12,16 @@ public class Canteen {
 	private String address;
 	private LatLng location;
 	private Date createDate;
-	private ArrayList<Hawker> hawkerList;
+	private ArrayList<Stall> stallList;
 
 	public Canteen(String name, String address, LatLng location,
-			Date createDate, ArrayList<Hawker> hawkerList) {
+			Date createDate, ArrayList<Stall> stallList) {
 		super();
 		this.name = name;
 		this.address = address;
 		this.location = location;
 		this.createDate = createDate;
-		this.hawkerList = hawkerList;
+		this.stallList = stallList;
 	}
 
 	public String getName() {
@@ -57,12 +56,12 @@ public class Canteen {
 		this.createDate = createDate;
 	}
 
-	public ArrayList<Hawker> getHawkerList() {
-		return hawkerList;
+	public ArrayList<Stall> getStallList() {
+		return stallList;
 	}
 
-	public void setHawkerList(ArrayList<Hawker> hawkerList) {
-		this.hawkerList = hawkerList;
+	public void setStallList(ArrayList<Stall> stallList) {
+		this.stallList = stallList;
 	}
 
 }

@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import arnold.eureka_mobile.Activity.ShoppingCart.ShoppingCartActivity;
 import arnold.eureka_mobile.Entity.Cart;
 import arnold.eureka_mobile.Entity.Food;
-import arnold.eureka_mobile.Entity.Hawker;
+import arnold.eureka_mobile.Entity.Stall;
 import arnold.eureka_mobile.R;
 
 public class SelectFoodActivity extends ActionBarActivity {
@@ -93,8 +93,8 @@ public class SelectFoodActivity extends ActionBarActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this); // use a linear layout manager
         recyclerView.setLayoutManager(layoutManager);
 
-        Hawker hawker = gson.fromJson(getIntent().getStringExtra("hawker"), Hawker.class);
-        ArrayList<Food> list = hawker.getFoodList();
+        Stall stall = gson.fromJson(getIntent().getStringExtra("stall"), Stall.class);
+        ArrayList<Food> list = stall.getFoodList();
         RecyclerView.Adapter listAdapter = new FavouritesAdapter(list);
         recyclerView.setAdapter(listAdapter);
     }

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -13,13 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.astuetz.PagerSlidingTabStrip;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 
-import arnold.eureka_mobile.Activity.SelectHawkerActivity;
+import arnold.eureka_mobile.Activity.SelectStallActivity;
 import arnold.eureka_mobile.Entity.Canteen;
 import arnold.eureka_mobile.R;
 import arnold.eureka_mobile.TestCreator;
@@ -113,9 +111,9 @@ public class CanteenSelectorFragment extends android.support.v4.app.Fragment {
                         int position = getPosition();
                         Canteen selectedCanteen = list.get(position);
 
-                        Intent intent = new Intent(context, SelectHawkerActivity.class);
+                        Intent intent = new Intent(context, SelectStallActivity.class);
                         intent.putExtra("canteen", gson.toJson(selectedCanteen));
-                        Log.i(TAG, "Starting SelectHawkerActivity");
+                        Log.i(TAG, "Starting SelectStallActivity");
                         context.startActivity(intent);
                     }
                 });

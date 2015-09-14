@@ -98,7 +98,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".Activity.SelectHawkerActivity"
+            android:name=".Activity.SelectStallActivity"
             android:label="@string/title_activity_select_hawker"
             android:screenOrientation="portrait" >
         </activity>

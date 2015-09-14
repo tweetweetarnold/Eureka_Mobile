@@ -6,7 +6,7 @@ import java.util.Date;
 import arnold.eureka_mobile.Entity.Canteen;
 import arnold.eureka_mobile.Entity.Employee;
 import arnold.eureka_mobile.Entity.Food;
-import arnold.eureka_mobile.Entity.Hawker;
+import arnold.eureka_mobile.Entity.Stall;
 
 /**
  * Created by Arnold on 8/18/2015.
@@ -25,10 +25,10 @@ public class TestCreator {
         return list;
     }
 
-    public static ArrayList<Hawker> getTestHawkerList(){
-        ArrayList<Hawker> list = new ArrayList<>();
+    public static ArrayList<Stall> getTestHawkerList(){
+        ArrayList<Stall> list = new ArrayList<>();
         for(int i = 0; i < 10; i++){
-            list.add(new Hawker("hawker" + i, "123", "Hawker " + i, 123, null, new Date(), getTestFoodList(), null));
+            list.add(new Stall("hawker" + i, "123", "Stall " + i, 123, null, new Date(), getTestFoodList(), null));
         }
         return list;
     }

@@ -21,13 +21,13 @@ import java.util.ArrayList;
 
 import arnold.eureka_mobile.Activity.ShoppingCart.ShoppingCartActivity;
 import arnold.eureka_mobile.Entity.Canteen;
-import arnold.eureka_mobile.Entity.Hawker;
+import arnold.eureka_mobile.Entity.Stall;
 import arnold.eureka_mobile.R;
 
-public class SelectHawkerActivity extends ActionBarActivity {
+public class SelectStallActivity extends ActionBarActivity {
 
     private static Gson gson;
-    private final String TAG = "SelectHawkerAct";
+    private final String TAG = "SelectStallAct";
     private Canteen selectedCanteen;
 
     @Override
@@ -75,23 +75,23 @@ public class SelectHawkerActivity extends ActionBarActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         selectedCanteen = gson.fromJson(getIntent().getStringExtra("canteen"), Canteen.class);
-        ArrayList<Hawker> list = selectedCanteen.getHawkerList();
+        ArrayList<Stall> list = selectedCanteen.getStallList();
         RecyclerView.Adapter listAdapter = new FavouritesAdapter(list);
         recyclerView.setAdapter(listAdapter);
     }
 
     public static class FavouritesAdapter extends RecyclerView.Adapter<FavouritesAdapter.ViewHolder> {
-        private ArrayList<Hawker> list;
+        private ArrayList<Stall> list;
 
         // constructor
-        public FavouritesAdapter(ArrayList<Hawker> list) {
+        public FavouritesAdapter(ArrayList<Stall> list) {
             this.list = list;
         }
 
         // Create new views (invoked by the layout manager)
         @Override
         public FavouritesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.itemlist_hawker, parent, false); // create a new view
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.itemlist_stall, parent, false); // create a new view
             ViewHolder vh = new ViewHolder(v); // set the view's size, margins, paddings and layout parameters
             return vh;
         }
@@ -118,8 +118,8 @@ public class SelectHawkerActivity extends ActionBarActivity {
                 super(v);
                 Typeface typeface = Typeface.createFromAsset(v.getContext().getAssets(), "RobotoCondensed-Regular.ttf");
 
-                TextView hawkerName = (TextView) v.findViewById(R.id.hawker_name);
-                hawkerName.setTypeface(typeface);
+                TextView stallName = (TextView) v.findViewById(R.id.stall_name);
+                stallName.setTypeface(typeface);
 
                 v.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -127,10 +127,10 @@ public class SelectHawkerActivity extends ActionBarActivity {
                         Context context = v.getContext();
 
                         int position = getPosition();
-                        Hawker selectedHawker = list.get(position);
+                        Stall selectedStall = list.get(position);
 
                         Intent intent = new Intent(context, SelectFoodActivity.class);
-                        intent.putExtra("hawker", gson.toJson(selectedHawker));
+                        intent.putExtra("stall", gson.toJson(selectedStall));
                         context.startActivity(intent);
                     }
                 });
